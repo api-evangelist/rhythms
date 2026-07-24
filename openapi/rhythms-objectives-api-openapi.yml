@@ -1,0 +1,82 @@
+openapi: 3.0.0
+info:
+  title: Rhythms (params in:body) access_requests objectives API
+  description: '
+
+    <p># RhythmsAI API</p>
+
+
+    <p>The RhythmsAI API provides a comprehensive platform for team productivity, goal tracking, and workflow automation. Built with multi-tenant architecture, it enables organizations to manage objectives, track progress, and integrate with popular productivity tools.</p>
+
+
+    <p>## API Structure</p>
+
+    <ul><li>
+
+    <p>**RESTful Design**: Clean, predictable REST endpoints following industry standards</p>
+
+    </li><li>
+
+    <p><strong>Multi-tenant</strong>: All data is automatically scoped to your organization’s tenant</p>
+
+    </li><li>
+
+    <p><strong>Authentication</strong>: Secure authentication with proper authorization controls</p>
+
+    </li><li>
+
+    <p><strong>Pagination</strong>: Efficient data retrieval with built-in pagination support</p>
+
+    </li><li>
+
+    <p><strong>Filtering</strong>: Advanced filtering capabilities using Ransack query DSL</p>
+
+    </li></ul>
+
+
+    <p>## Getting Started</p>
+
+
+    <p>All API endpoints require authentication. Once authenticated, your requests will be automatically scoped to your organization’s data. The API supports JSON request/response format and follows standard HTTP status codes for success and error handling.</p>
+
+
+    <p>For integration support and detailed examples, refer to the specific endpoint documentation below.</p>
+
+    '
+  version: '1.0'
+  x-copyright: null
+servers:
+- url: https://api.rhythms.ai
+security: []
+tags:
+- name: objectives
+paths:
+  /okrs/objectives/show:
+    get:
+      tags:
+      - objectives
+      operationId: get_okrs_objectives_show
+      summary: Get a specific OKR
+      parameters:
+      - name: uuid
+        in: query
+        required: true
+        description: OKR UUID or human readable short ID (e.g., OBJ-001, KR-001, INIT-001)
+        schema:
+          type: string
+      responses:
+        '400':
+          description: Bad Request - Invalid parameters or malformed request
+        '401':
+          description: Unauthorized - Invalid or missing authentication
+        '403':
+          description: Forbidden - User lacks permission to access this resource
+        '404':
+          description: Not Found - Resource does not exist
+        '422':
+          description: Unprocessable Entity - Invalid request parameters or validation errors
+        '429':
+          description: Too Many Requests - Rate limit exceeded
+        '500':
+          description: Internal Server Error - Unexpected server error
+      description: Retrieves detailed information about a specific OKR (Objective, Key Result, or Initiative) by UUID

@@ -1,0 +1,96 @@
+openapi: 3.0.0
+info:
+  title: Rhythms (params in:body) access_requests connector_requests API
+  description: '
+
+    <p># RhythmsAI API</p>
+
+
+    <p>The RhythmsAI API provides a comprehensive platform for team productivity, goal tracking, and workflow automation. Built with multi-tenant architecture, it enables organizations to manage objectives, track progress, and integrate with popular productivity tools.</p>
+
+
+    <p>## API Structure</p>
+
+    <ul><li>
+
+    <p>**RESTful Design**: Clean, predictable REST endpoints following industry standards</p>
+
+    </li><li>
+
+    <p><strong>Multi-tenant</strong>: All data is automatically scoped to your organization’s tenant</p>
+
+    </li><li>
+
+    <p><strong>Authentication</strong>: Secure authentication with proper authorization controls</p>
+
+    </li><li>
+
+    <p><strong>Pagination</strong>: Efficient data retrieval with built-in pagination support</p>
+
+    </li><li>
+
+    <p><strong>Filtering</strong>: Advanced filtering capabilities using Ransack query DSL</p>
+
+    </li></ul>
+
+
+    <p>## Getting Started</p>
+
+
+    <p>All API endpoints require authentication. Once authenticated, your requests will be automatically scoped to your organization’s data. The API supports JSON request/response format and follows standard HTTP status codes for success and error handling.</p>
+
+
+    <p>For integration support and detailed examples, refer to the specific endpoint documentation below.</p>
+
+    '
+  version: '1.0'
+  x-copyright: null
+servers:
+- url: https://api.rhythms.ai
+security: []
+tags:
+- name: connector_requests
+paths:
+  /connector_requests:
+    post:
+      tags:
+      - connector_requests
+      operationId: post_connector_requests
+      summary: Record a connector integration request and notify Pylon
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                connection_type:
+                  type: string
+                  description: Connector connection type key (e.g. Slack) or free-form name
+                connector_display_name:
+                  type: string
+                  description: Human-readable connector name (defaults to connection_type when blank)
+                request_source:
+                  type: string
+                  enum:
+                  - catalog
+                  - by_name
+                  description: Where the request originated (low-cardinality Datadog tag)
+              additionalProperties: false
+              required:
+              - connection_type
+      responses:
+        '400':
+          description: Bad Request - Invalid parameters or malformed request
+        '401':
+          description: Unauthorized - Invalid or missing authentication
+        '403':
+          description: Forbidden - User lacks permission to access this resource
+        '404':
+          description: Not Found - Resource does not exist
+        '422':
+          description: Unprocessable Entity - Invalid request parameters or validation errors
+        '429':
+          description: Too Many Requests - Rate limit exceeded
+        '500':
+          description: Internal Server Error - Unexpected server error
+      description: Persists the requested connector on `current_user.tenant.setting.requested_connections` (idempotent, normalized by case + collapsed whitespace) and pages Pylon by creating an in-app chat issue attributed to the requester. Used by both the admin Connectors page (catalog tile + free-form) and the My Connectors page (free-form). Requires PYLON_ISSUES_API_TOKEN + PYLON_APP_ID for the Pylon side; persistence still happens when those are unset. Authenticated tenant members only; the workspace is always `current_user.tenant` (no tenant id in the request body).

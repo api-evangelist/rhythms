@@ -1,0 +1,483 @@
+openapi: 3.0.0
+info:
+  title: Rhythms (params in:body) access_requests explorer_views API
+  description: '
+
+    <p># RhythmsAI API</p>
+
+
+    <p>The RhythmsAI API provides a comprehensive platform for team productivity, goal tracking, and workflow automation. Built with multi-tenant architecture, it enables organizations to manage objectives, track progress, and integrate with popular productivity tools.</p>
+
+
+    <p>## API Structure</p>
+
+    <ul><li>
+
+    <p>**RESTful Design**: Clean, predictable REST endpoints following industry standards</p>
+
+    </li><li>
+
+    <p><strong>Multi-tenant</strong>: All data is automatically scoped to your organization’s tenant</p>
+
+    </li><li>
+
+    <p><strong>Authentication</strong>: Secure authentication with proper authorization controls</p>
+
+    </li><li>
+
+    <p><strong>Pagination</strong>: Efficient data retrieval with built-in pagination support</p>
+
+    </li><li>
+
+    <p><strong>Filtering</strong>: Advanced filtering capabilities using Ransack query DSL</p>
+
+    </li></ul>
+
+
+    <p>## Getting Started</p>
+
+
+    <p>All API endpoints require authentication. Once authenticated, your requests will be automatically scoped to your organization’s data. The API supports JSON request/response format and follows standard HTTP status codes for success and error handling.</p>
+
+
+    <p>For integration support and detailed examples, refer to the specific endpoint documentation below.</p>
+
+    '
+  version: '1.0'
+  x-copyright: null
+servers:
+- url: https://api.rhythms.ai
+security: []
+tags:
+- name: explorer_views
+paths:
+  /explorer_views:
+    post:
+      tags:
+      - explorer_views
+      operationId: post_explorer_views
+      summary: Create a new explorer view
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                explorer_view:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      description: Name of the explorer view
+                    type:
+                      type: string
+                      enum:
+                      - ObjectiveView
+                      - InitiativeView
+                      - ReportsView
+                      default: ObjectiveView
+                      description: Type of explorer view
+                    status:
+                      type: string
+                      enum:
+                      - draft
+                      - published
+                      default: published
+                      description: Status of the explorer view
+                    description:
+                      type: string
+                      description: Description of the explorer view
+                    entity_type:
+                      type: string
+                      enum:
+                      - Tenant
+                      - User
+                      - Team
+                      - Okrs::Chat
+                      description: Type of entity this view belongs to
+                    entity_uuid:
+                      type: string
+                      description: UUID of the entity this view belongs to
+                    filters:
+                      type: object
+                      properties:
+                        with_time_periods_hierarchy:
+                          type: object
+                          properties:
+                            time_period_uuid_in:
+                              type: array
+                              items:
+                                type: string
+                              description: Array of time period UUIDs or dynamic values (${current_primary_cycle}, ${current_secondary_cycle})
+                            include_all_nested_time_periods:
+                              type: boolean
+                              description: Include all nested time periods
+                          additionalProperties: false
+                          required:
+                          - time_period_uuid_in
+                          - include_all_nested_time_periods
+                        with_teams_hierarchy:
+                          type: object
+                          properties:
+                            teams_uuid_in:
+                              type: array
+                              items:
+                                type: string
+                              description: Array of team UUIDs
+                            include_immediate_subteams:
+                              type: boolean
+                              description: Include immediate subteams
+                            include_all_subteams:
+                              type: boolean
+                              description: Include all subteams
+                          additionalProperties: false
+                          required:
+                          - teams_uuid_in
+                          - include_immediate_subteams
+                          - include_all_subteams
+                        with_owners_hierarchy:
+                          type: object
+                          properties:
+                            owners_uuid_in:
+                              type: array
+                              items:
+                                type: string
+                              description: Array of owner UUIDs
+                            include_direct_reports:
+                              type: boolean
+                              description: Include direct reports
+                            include_all_reports:
+                              type: boolean
+                              description: Include all reports
+                            include_delegates:
+                              type: boolean
+                              default: false
+                              description: Include delegated goals (goals where specified users are delegates)
+                          additionalProperties: false
+                          required:
+                          - owners_uuid_in
+                          - include_direct_reports
+                          - include_all_reports
+                        object_type_in:
+                          type: array
+                          items:
+                            type: string
+                          description: 'Filter by goal type: Okrs::Objective, Okrs::KeyResult, or Okrs::Initiative (nil/empty = all types). Use ONLY for explicit type requests (e.g., ''KRs'' → [''Okrs::KeyResult''], ''objectives'' → [''Okrs::Objective'']). Do NOT use for generic ''goals'' or ''OKRs'' queries—return all types instead. When using this filter (non-nil/non-empty), set flat_list=true.'
+                        flat_list:
+                          type: boolean
+                          description: 'Show results as flat list (true) or tree hierarchy (false/omit). Use true with: object_type_in filter, status-based lists, cross-hierarchy filtering (owner/team). Use false for: ''OKRs''/''my OKRs'' queries, viewing parent-child relationships. Rule: If using object_type_in, use flat_list=true.'
+                        with_last_checkin_date:
+                          type: object
+                          properties:
+                            operator:
+                              type: string
+                              description: Comparison operator (eq, gt, lt)
+                            value:
+                              type: string
+                              description: Date value in YYYY-MM-DD format
+                          additionalProperties: false
+                          required:
+                          - operator
+                          - value
+                        current_status_in:
+                          type: array
+                          items:
+                            type: string
+                          description: Filter by current status values
+                        checkin_status_in:
+                          type: array
+                          items:
+                            type: string
+                            enum:
+                            - not_due
+                            - upcoming
+                            - complete
+                            - late
+                            - due
+                            - overdue
+                          description: Filter by checkin status values
+                        with_source:
+                          type: object
+                          properties:
+                            type:
+                              type: string
+                              enum:
+                              - Okrs::Chat
+                              - Chat::Thread
+                              - Okrs::ImportJob
+                              - Okrs::CascadeJob
+                              - Artifacts::GeneratedObjective
+                              - Artifacts::BulkImport
+                              description: Source type
+                            uuid:
+                              type: string
+                              description: Source UUID
+                          additionalProperties: false
+                          required:
+                          - type
+                          - uuid
+                        uuid_in:
+                          type: array
+                          items:
+                            type: string
+                          description: Filter by specific goal UUIDs
+                        with_any_labels:
+                          type: array
+                          items:
+                            type: string
+                          description: Filter by label names (must match at least one)
+                        owners_profile_department_name_in:
+                          type: array
+                          items:
+                            type: string
+                          description: Filter by owner department names
+                        owners_profile_division_name_in:
+                          type: array
+                          items:
+                            type: string
+                          description: Filter by owner division names
+                        owners_profile_job_title_in:
+                          type: array
+                          items:
+                            type: string
+                          description: Filter by owner job titles
+                        owners_profile_cost_center_name_in:
+                          type: array
+                          items:
+                            type: string
+                          description: Filter by owner cost center names
+                        owners_profile_employee_type_in:
+                          type: array
+                          items:
+                            type: string
+                          description: Filter by owner employee types
+                        owners_profile_custom_field_1_in:
+                          type: array
+                          items:
+                            type: string
+                          description: Filter by owner custom field 1
+                        owners_profile_custom_field_2_in:
+                          type: array
+                          items:
+                            type: string
+                          description: Filter by owner custom field 2
+                        owners_profile_custom_field_3_in:
+                          type: array
+                          items:
+                            type: string
+                          description: Filter by owner custom field 3
+                        owners_profile_custom_field_4_in:
+                          type: array
+                          items:
+                            type: string
+                          description: Filter by owner custom field 4
+                        owners_profile_custom_field_5_in:
+                          type: array
+                          items:
+                            type: string
+                          description: Filter by owner custom field 5
+                      additionalProperties: false
+                    preferences:
+                      type: object
+                      properties:
+                        reports:
+                          type: object
+                          properties:
+                            okrs_with_checkins:
+                              type: object
+                              properties:
+                                slice_by:
+                                  type: string
+                                  enum:
+                                  - team
+                                  - manager
+                                  - user
+                                  - custom_field_1
+                                  - custom_field_2
+                                  - custom_field_3
+                                  - custom_field_4
+                                  - custom_field_5
+                                  description: Report slice_by value
+                                granularity:
+                                  type: string
+                                  enum:
+                                  - weekly
+                                  - monthly
+                                  - quarterly
+                                  - yearly
+                                  description: Report granularity
+                              additionalProperties: false
+                            checkin_cycle_compliance:
+                              type: object
+                              properties:
+                                slice_by:
+                                  type: string
+                                  enum:
+                                  - team
+                                  - manager
+                                  - user
+                                  - custom_field_1
+                                  - custom_field_2
+                                  - custom_field_3
+                                  - custom_field_4
+                                  - custom_field_5
+                                  description: Report slice_by value
+                                granularity:
+                                  type: string
+                                  enum:
+                                  - weekly
+                                  - monthly
+                                  - quarterly
+                                  - yearly
+                                  description: Report granularity
+                              additionalProperties: false
+                            okrs_with_alignment:
+                              type: object
+                              properties:
+                                slice_by:
+                                  type: string
+                                  enum:
+                                  - team
+                                  - manager
+                                  - user
+                                  - custom_field_1
+                                  - custom_field_2
+                                  - custom_field_3
+                                  - custom_field_4
+                                  - custom_field_5
+                                  description: Report slice_by value
+                                granularity:
+                                  type: string
+                                  enum:
+                                  - weekly
+                                  - monthly
+                                  - quarterly
+                                  - yearly
+                                  description: Report granularity
+                              additionalProperties: false
+                            users_with_okrs:
+                              type: object
+                              properties:
+                                slice_by:
+                                  type: string
+                                  enum:
+                                  - team
+                                  - manager
+                                  - user
+                                  - custom_field_1
+                                  - custom_field_2
+                                  - custom_field_3
+                                  - custom_field_4
+                                  - custom_field_5
+                                  description: Report slice_by value
+                                granularity:
+                                  type: string
+                                  enum:
+                                  - weekly
+                                  - monthly
+                                  - quarterly
+                                  - yearly
+                                  description: Report granularity
+                              additionalProperties: false
+                            okrs_with_integrations:
+                              type: object
+                              properties:
+                                slice_by:
+                                  type: string
+                                  enum:
+                                  - team
+                                  - manager
+                                  - user
+                                  - custom_field_1
+                                  - custom_field_2
+                                  - custom_field_3
+                                  - custom_field_4
+                                  - custom_field_5
+                                  description: Report slice_by value
+                                granularity:
+                                  type: string
+                                  enum:
+                                  - weekly
+                                  - monthly
+                                  - quarterly
+                                  - yearly
+                                  description: Report granularity
+                              additionalProperties: false
+                            performance_report:
+                              type: object
+                              properties:
+                                slice_by:
+                                  type: string
+                                  enum:
+                                  - team
+                                  - manager
+                                  - user
+                                  - custom_field_1
+                                  - custom_field_2
+                                  - custom_field_3
+                                  - custom_field_4
+                                  - custom_field_5
+                                  description: Report slice_by value
+                                granularity:
+                                  type: string
+                                  enum:
+                                  - weekly
+                                  - monthly
+                                  - quarterly
+                                  - yearly
+                                  description: Report granularity
+                              additionalProperties: false
+                          additionalProperties: false
+                      additionalProperties: false
+                  additionalProperties: false
+                  required:
+                  - name
+              additionalProperties: false
+              required:
+              - explorer_view
+      responses:
+        '201':
+          description: Created explorer view details
+          headers: {}
+          content:
+            '*/*':
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                        description: Type of the explorer view
+                      record:
+                        type: object
+                        additionalProperties: true
+                        description: Explorer view object
+                      checks:
+                        type: object
+                        additionalProperties: true
+                        description: Boolean flags for each permission check
+                    additionalProperties: false
+                    required:
+                    - type
+                    - record
+                    - checks
+                additionalProperties: false
+                required:
+                - data
+        '400':
+          description: Bad Request - Invalid parameters or malformed request
+        '401':
+          description: Unauthorized - Invalid or missing authentication
+        '403':
+          description: Forbidden - User lacks permission to access this resource
+        '404':
+          description: Not Found - Resource does not exist
+        '422':
+          description: Unprocessable Entity - Invalid request parameters or validation errors
+        '429':
+          description: Too Many Requests - Rate limit exceeded
+        '500':
+          description: Internal Server Error - Unexpected server error
+      description: Creates a new explorer view (ObjectiveView, InitiativeView, or ReportsView) with the provided attributes.

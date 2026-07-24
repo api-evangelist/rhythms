@@ -1,0 +1,157 @@
+openapi: 3.0.0
+info:
+  title: Rhythms (params in:body) access_requests API
+  description: '
+
+    <p># RhythmsAI API</p>
+
+
+    <p>The RhythmsAI API provides a comprehensive platform for team productivity, goal tracking, and workflow automation. Built with multi-tenant architecture, it enables organizations to manage objectives, track progress, and integrate with popular productivity tools.</p>
+
+
+    <p>## API Structure</p>
+
+    <ul><li>
+
+    <p>**RESTful Design**: Clean, predictable REST endpoints following industry standards</p>
+
+    </li><li>
+
+    <p><strong>Multi-tenant</strong>: All data is automatically scoped to your organization’s tenant</p>
+
+    </li><li>
+
+    <p><strong>Authentication</strong>: Secure authentication with proper authorization controls</p>
+
+    </li><li>
+
+    <p><strong>Pagination</strong>: Efficient data retrieval with built-in pagination support</p>
+
+    </li><li>
+
+    <p><strong>Filtering</strong>: Advanced filtering capabilities using Ransack query DSL</p>
+
+    </li></ul>
+
+
+    <p>## Getting Started</p>
+
+
+    <p>All API endpoints require authentication. Once authenticated, your requests will be automatically scoped to your organization’s data. The API supports JSON request/response format and follows standard HTTP status codes for success and error handling.</p>
+
+
+    <p>For integration support and detailed examples, refer to the specific endpoint documentation below.</p>
+
+    '
+  version: '1.0'
+  x-copyright: null
+servers:
+- url: https://api.rhythms.ai
+security: []
+tags:
+- name: access_requests
+paths:
+  /{shareable_type}/{shareable_uuid}/access_requests:
+    post:
+      tags:
+      - access_requests
+      operationId: post_shareable_type_shareable_uuid_access_requests
+      summary: Request more access to a shareable resource
+      parameters:
+      - name: shareable_type
+        in: path
+        required: true
+        description: Type of shareable resource
+        schema:
+          type: string
+          enum:
+          - okrs-dashboards
+          - documents
+          - explorer-views
+          - playbooks
+      - name: shareable_uuid
+        in: path
+        required: true
+        description: <tenant_uuid>_<resource_uuid> or resource UUID
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                requested_level:
+                  type: string
+                  enum:
+                  - view
+                  - comment
+                  - edit
+                  - manage
+                  description: Access level being requested
+                message:
+                  type: string
+                  description: Optional note from the requester shown to recipients
+              additionalProperties: false
+              required:
+              - requested_level
+      responses:
+        '200':
+          description: ok
+      description: Request a higher access level on a shareable (document, view, or playbook). A pending request is persisted (created, or upgraded in place if one already exists) and the resource's owner and managers are notified when a new request is created. The request is auto-resolved once a later grant satisfies it. A request the user already satisfies (owner or already at/above the requested level) is a no-op.
+  /{shareable_type}/{shareable_uuid}/access_requests/mine:
+    get:
+      tags:
+      - access_requests
+      operationId: get_shareable_type_shareable_uuid_access_requests_mine
+      summary: Get the caller's own pending access request
+      parameters:
+      - name: shareable_type
+        in: path
+        required: true
+        description: Type of shareable resource
+        schema:
+          type: string
+          enum:
+          - okrs-dashboards
+          - documents
+          - explorer-views
+          - playbooks
+      - name: shareable_uuid
+        in: path
+        required: true
+        description: <tenant_uuid>_<resource_uuid> or resource UUID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ok
+      description: 'Returns the current user''s own pending access request for a shareable (or none). Self-scoped: it only ever reports the caller''s request, so it leaks nothing about the resource or other users'' requests, and (like create) requires no existing access. The UI uses this to show a persistent "Access requested" state across page refreshes.'
+  /{shareable_type}/{shareable_uuid}/access_requests/resend:
+    post:
+      tags:
+      - access_requests
+      operationId: post_shareable_type_shareable_uuid_access_requests_resend
+      summary: Re-notify the owner/managers about the caller's pending request
+      parameters:
+      - name: shareable_type
+        in: path
+        required: true
+        description: Type of shareable resource
+        schema:
+          type: string
+          enum:
+          - okrs-dashboards
+          - documents
+          - explorer-views
+          - playbooks
+      - name: shareable_uuid
+        in: path
+        required: true
+        description: <tenant_uuid>_<resource_uuid> or resource UUID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ok
+      description: 'Re-sends the access-request notification for the current user''s own pending request (in-app re-surface + email), throttled to once per hour. Lets a requestor nudge an ignored request instead of being stuck. Self-scoped and tenant-scoped like the other actions. Returns { status: "resent" } when re-notified, { status: "throttled" } within the window, or { status: "no_pending_request" } when the caller has none.'

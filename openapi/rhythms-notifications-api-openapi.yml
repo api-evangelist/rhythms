@@ -1,0 +1,115 @@
+openapi: 3.0.0
+info:
+  title: Rhythms (params in:body) access_requests notifications API
+  description: '
+
+    <p># RhythmsAI API</p>
+
+
+    <p>The RhythmsAI API provides a comprehensive platform for team productivity, goal tracking, and workflow automation. Built with multi-tenant architecture, it enables organizations to manage objectives, track progress, and integrate with popular productivity tools.</p>
+
+
+    <p>## API Structure</p>
+
+    <ul><li>
+
+    <p>**RESTful Design**: Clean, predictable REST endpoints following industry standards</p>
+
+    </li><li>
+
+    <p><strong>Multi-tenant</strong>: All data is automatically scoped to your organization’s tenant</p>
+
+    </li><li>
+
+    <p><strong>Authentication</strong>: Secure authentication with proper authorization controls</p>
+
+    </li><li>
+
+    <p><strong>Pagination</strong>: Efficient data retrieval with built-in pagination support</p>
+
+    </li><li>
+
+    <p><strong>Filtering</strong>: Advanced filtering capabilities using Ransack query DSL</p>
+
+    </li></ul>
+
+
+    <p>## Getting Started</p>
+
+
+    <p>All API endpoints require authentication. Once authenticated, your requests will be automatically scoped to your organization’s data. The API supports JSON request/response format and follows standard HTTP status codes for success and error handling.</p>
+
+
+    <p>For integration support and detailed examples, refer to the specific endpoint documentation below.</p>
+
+    '
+  version: '1.0'
+  x-copyright: null
+servers:
+- url: https://api.rhythms.ai
+security: []
+tags:
+- name: notifications
+paths:
+  /internal/notifications/send:
+    post:
+      tags:
+      - notifications
+      operationId: post_internal_notifications_send
+      summary: Send a notification to a specific user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                recipient_user_uuid:
+                  type: string
+                  description: UUID of the user who should receive the notification
+                thread_uuid:
+                  type: string
+                  description: UUID of the conversation thread to deep link to
+                playbook_run_uuid:
+                  type: string
+                  description: UUID of the playbook run to deep link to
+                title:
+                  type: string
+                  description: Short title for the notification (2-3 words)
+                message:
+                  type: string
+                  description: Detailed message content
+                channel:
+                  type: string
+                  default: auto
+                  description: 'Notification channel: ''slack'', ''email'', or ''auto'''
+                dedupe_key:
+                  type: string
+                  description: Optional idempotency key to suppress duplicate notifications for the same recipient
+              additionalProperties: false
+              required:
+              - recipient_user_uuid
+              - title
+              - message
+      responses:
+        '400':
+          description: Bad Request - Invalid parameters or malformed request
+        '401':
+          description: Unauthorized - Invalid or missing authentication
+        '403':
+          description: Forbidden - User lacks permission to access this resource
+        '404':
+          description: Not Found - Resource does not exist
+        '422':
+          description: Unprocessable Entity - Invalid request parameters or validation errors
+        '429':
+          description: Too Many Requests - Rate limit exceeded
+        '500':
+          description: Internal Server Error - Unexpected server error
+      description: 'Sends a notification to a specific user within the current tenant using internal authentication.
+
+
+        This endpoint is intended for backend-triggered notifications where the originating user JWT
+
+        may no longer be valid by the time the notification is sent.
+
+        '

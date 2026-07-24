@@ -1,0 +1,114 @@
+openapi: 3.0.0
+info:
+  title: Rhythms (params in:body) access_requests chat_refresh_threads API
+  description: '
+
+    <p># RhythmsAI API</p>
+
+
+    <p>The RhythmsAI API provides a comprehensive platform for team productivity, goal tracking, and workflow automation. Built with multi-tenant architecture, it enables organizations to manage objectives, track progress, and integrate with popular productivity tools.</p>
+
+
+    <p>## API Structure</p>
+
+    <ul><li>
+
+    <p>**RESTful Design**: Clean, predictable REST endpoints following industry standards</p>
+
+    </li><li>
+
+    <p><strong>Multi-tenant</strong>: All data is automatically scoped to your organization’s tenant</p>
+
+    </li><li>
+
+    <p><strong>Authentication</strong>: Secure authentication with proper authorization controls</p>
+
+    </li><li>
+
+    <p><strong>Pagination</strong>: Efficient data retrieval with built-in pagination support</p>
+
+    </li><li>
+
+    <p><strong>Filtering</strong>: Advanced filtering capabilities using Ransack query DSL</p>
+
+    </li></ul>
+
+
+    <p>## Getting Started</p>
+
+
+    <p>All API endpoints require authentication. Once authenticated, your requests will be automatically scoped to your organization’s data. The API supports JSON request/response format and follows standard HTTP status codes for success and error handling.</p>
+
+
+    <p>For integration support and detailed examples, refer to the specific endpoint documentation below.</p>
+
+    '
+  version: '1.0'
+  x-copyright: null
+servers:
+- url: https://api.rhythms.ai
+security: []
+tags:
+- name: chat_refresh_threads
+paths:
+  /chat/refresh_threads/{thread_uuid}/status:
+    get:
+      tags:
+      - chat_refresh_threads
+      operationId: get_chat_refresh_threads_thread_uuid_status
+      summary: Get the status of an on-demand refresh
+      parameters:
+      - name: thread_uuid
+        in: path
+        required: true
+        description: UUID of the refresh thread returned by POST /documents/:uuid/refresh
+        schema:
+          type: string
+      responses:
+        '400':
+          description: Bad Request - Invalid parameters or malformed request
+        '401':
+          description: Unauthorized - Invalid or missing authentication
+        '403':
+          description: Forbidden - User lacks permission to access this resource
+        '404':
+          description: Not Found - Resource does not exist
+        '422':
+          description: Unprocessable Entity - Invalid request parameters or validation errors
+        '429':
+          description: Too Many Requests - Rate limit exceeded
+        '500':
+          description: Internal Server Error - Unexpected server error
+      description: 'Poll the status of an on-demand refresh started by
+
+        `POST /documents/:uuid/refresh`. Pass the `thread_uuid` returned by
+
+        that call. Returns a coarse `state`
+
+        (`running` | `completed` | `completed_unknown_outcome` | `failed`),
+
+        the skill-level `skill_status` when parseable
+
+        (`completed` | `completed_no_changes` | `completed_locked` | `failed`),
+
+        a one-line `summary`, and `completed_at` when the run terminates.
+
+
+        `completed_unknown_outcome` means the agent finished talking but no
+
+        recognized terminal status code was present in its reply — callers
+
+        should surface `summary` to the user verbatim rather than assume the
+
+        refresh succeeded.
+
+
+        Possession of the unguessable `thread_uuid` is the access proof —
+
+        within a tenant, any caller with the handle can poll its status.
+
+        Callers should poll until `state != "running"` — refreshes typically
+
+        complete within 10-60 seconds.
+
+        '

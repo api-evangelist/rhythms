@@ -1,0 +1,225 @@
+openapi: 3.0.0
+info:
+  title: Rhythms (params in:body) access_requests time_periods API
+  description: '
+
+    <p># RhythmsAI API</p>
+
+
+    <p>The RhythmsAI API provides a comprehensive platform for team productivity, goal tracking, and workflow automation. Built with multi-tenant architecture, it enables organizations to manage objectives, track progress, and integrate with popular productivity tools.</p>
+
+
+    <p>## API Structure</p>
+
+    <ul><li>
+
+    <p>**RESTful Design**: Clean, predictable REST endpoints following industry standards</p>
+
+    </li><li>
+
+    <p><strong>Multi-tenant</strong>: All data is automatically scoped to your organization’s tenant</p>
+
+    </li><li>
+
+    <p><strong>Authentication</strong>: Secure authentication with proper authorization controls</p>
+
+    </li><li>
+
+    <p><strong>Pagination</strong>: Efficient data retrieval with built-in pagination support</p>
+
+    </li><li>
+
+    <p><strong>Filtering</strong>: Advanced filtering capabilities using Ransack query DSL</p>
+
+    </li></ul>
+
+
+    <p>## Getting Started</p>
+
+
+    <p>All API endpoints require authentication. Once authenticated, your requests will be automatically scoped to your organization’s data. The API supports JSON request/response format and follows standard HTTP status codes for success and error handling.</p>
+
+
+    <p>For integration support and detailed examples, refer to the specific endpoint documentation below.</p>
+
+    '
+  version: '1.0'
+  x-copyright: null
+servers:
+- url: https://api.rhythms.ai
+security: []
+tags:
+- name: time_periods
+paths:
+  /okrs/time_periods:
+    get:
+      tags:
+      - time_periods
+      operationId: get_okrs_time_periods
+      summary: List all time periods
+      parameters:
+      - name: page
+        in: query
+        description: 'Page number for pagination (default: 1)'
+        schema:
+          type: number
+          default: 1
+      - name: per_page
+        in: query
+        description: 'Number of records per page (default: 20, max: 100)'
+        schema:
+          type: number
+          default: 20
+      - name: limit
+        in: query
+        description: Alias for per_page - number of records per page
+        schema:
+          type: number
+          default: 20
+      - name: limit_max
+        in: query
+        description: Maximum number of records per page (overrides limit if not set)
+        schema:
+          type: number
+          default: null
+      - name: count
+        in: query
+        description: Set to 'true' to include total count in pagy metadata (data.pagy.count). Use for count/total queries instead of paginating through all pages.
+        schema:
+          type: string
+      - name: q
+        in: query
+        description: 'Ransack query parameters for filtering. In query strings, use bracket notation: q[name_cont]=john&q[status_eq]=active&q[s]=name+asc. Keys are attribute names with predicates: _cont (contains), _eq (equals), _in (array membership), _gteq (>=), _lteq (<=), _present (not null), _null (is null). The "s" key sorts results (e.g., q[s]=created_at+desc). Example query string: ?q[name_cont]=john&q[s]=name+asc filters names containing "john" sorted by name ascending.'
+        required: false
+        schema:
+          type: object
+          additionalProperties: true
+      responses:
+        '400':
+          description: Bad Request - Invalid parameters or malformed request
+        '401':
+          description: Unauthorized - Invalid or missing authentication
+        '403':
+          description: Forbidden - User lacks permission to access this resource
+        '404':
+          description: Not Found - Resource does not exist
+        '422':
+          description: Unprocessable Entity - Invalid request parameters or validation errors
+        '429':
+          description: Too Many Requests - Rate limit exceeded
+        '500':
+          description: Internal Server Error - Unexpected server error
+      description: 'Retrieves all time periods for the current tenant.
+
+
+        Time periods are automatically ordered with active periods appearing first,
+
+        followed by other periods in chronological order. Active time periods are
+
+        determined by the current tenant''s OKR cycle settings.
+
+
+
+        This endpoint supports filtering and pagination through query parameters. Available ransackable attributes: uuid, name.'
+  /okrs/time_periods/{id}:
+    put:
+      tags:
+      - time_periods
+      operationId: put_okrs_time_periods_id
+      summary: Update a time period
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: Time period UUID
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                time_period:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      default: null
+                      description: Name of the time period
+                    start_date:
+                      type: string
+                      default: null
+                      description: Start date of the time period (YYYY-MM-DD)
+                    end_date:
+                      type: string
+                      default: null
+                      description: End date of the time period (YYYY-MM-DD)
+                    parent_uuid:
+                      type: string
+                      default: null
+                      description: UUID of parent time period for hierarchical periods
+                  additionalProperties: false
+              additionalProperties: false
+              required:
+              - time_period
+      responses:
+        '400':
+          description: Bad Request - Invalid parameters or malformed request
+        '401':
+          description: Unauthorized - Invalid or missing authentication
+        '403':
+          description: Forbidden - User lacks permission to access this resource
+        '404':
+          description: Not Found - Resource does not exist
+        '422':
+          description: Unprocessable Entity - Invalid request parameters or validation errors
+        '429':
+          description: Too Many Requests - Rate limit exceeded
+        '500':
+          description: Internal Server Error - Unexpected server error
+      description: 'Updates an existing time period with the specified attributes.
+
+
+        Time periods help you organize your OKRs into different blocks of time.
+
+        Optionally, you can update the parent-child relationship between time periods
+
+        to form a hierarchy.
+
+        '
+    delete:
+      tags:
+      - time_periods
+      operationId: delete_okrs_time_periods_id
+      summary: Delete a time period
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: Time period UUID
+        schema:
+          type: string
+      responses:
+        '400':
+          description: Bad Request - Invalid parameters or malformed request
+        '401':
+          description: Unauthorized - Invalid or missing authentication
+        '403':
+          description: Forbidden - User lacks permission to access this resource
+        '404':
+          description: Not Found - Resource does not exist
+        '422':
+          description: Unprocessable Entity - Invalid request parameters or validation errors
+        '429':
+          description: Too Many Requests - Rate limit exceeded
+        '500':
+          description: Internal Server Error - Unexpected server error
+      description: 'Deletes a time period.
+
+
+        A time period cannot be deleted if it is the last remaining time period,
+
+        or if it has associated objectives, key results, or initiatives.
+
+        '
