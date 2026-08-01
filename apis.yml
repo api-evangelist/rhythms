@@ -1,7 +1,28 @@
 aid: rhythms
 name: Rhythms
-description: 'Rhythms is a company surfaced as a portfolio company of accel and added to the API Evangelist
-  network as a stub for enrichment. Sector: ai. This profile is a lead awaiting the enrichment pipeline.'
+description: >-
+  Rhythms is an AI operating partner for teams, built by the team behind Ally.io
+  and Microsoft Viva Goals. It automates business reviews, pre-briefs, reports,
+  and OKR/goal tracking, surfaces execution risks early, and keeps organizational
+  alignment visible across hundreds of connected business tools. Rhythms exposes a
+  multi-tenant REST API (api.rhythms.ai) covering documents, teams, users, labels,
+  OKR objectives and time periods, data sources, connector and access requests,
+  and explorer views, with page-based pagination and a Ransack-based filtering DSL.
+  It also supports custom Model Context Protocol (MCP) integrations so agents can
+  connect to the platform. Backed by Accel.
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://www.rhythms.ai/favicon.ico
 url: https://raw.githubusercontent.com/api-evangelist/rhythms/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,16 +32,248 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
 - Ai
-apis: []
+- Productivity
+- Goal Tracking
+- OKR
+- Workflow Automation
+- Team Collaboration
+- Business Reviews
+- MCP
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- aid: rhythms:rhythms-access-requests-api
+  name: Rhythms access_requests API
+  description: The access_requests API from Rhythms — 3 operation(s) for access_requests.
+  humanURL: https://www.rhythms.ai/
+  baseURL: https://api.rhythms.ai
+  tags:
+  - access_requests
+  properties:
+  - type: OpenAPI
+    url: openapi/rhythms-access-requests-api-openapi.yml
+  - type: ErrorCatalog
+    url: errors/rhythms-problem-types.yml
+  - type: DataModel
+    url: data-model/rhythms-data-model.yml
+- aid: rhythms:rhythms-chat-refresh-threads-api
+  name: Rhythms chat_refresh_threads API
+  description: The chat_refresh_threads API from Rhythms — 1 operation(s) for chat_refresh_threads.
+  humanURL: https://www.rhythms.ai/
+  baseURL: https://api.rhythms.ai
+  tags:
+  - chat_refresh_threads
+  properties:
+  - type: OpenAPI
+    url: openapi/rhythms-chat-refresh-threads-api-openapi.yml
+  - type: ErrorCatalog
+    url: errors/rhythms-problem-types.yml
+  - type: DataModel
+    url: data-model/rhythms-data-model.yml
+- aid: rhythms:rhythms-connector-requests-api
+  name: Rhythms connector_requests API
+  description: The connector_requests API from Rhythms — 1 operation(s) for connector_requests.
+  humanURL: https://www.rhythms.ai/
+  baseURL: https://api.rhythms.ai
+  tags:
+  - connector_requests
+  properties:
+  - type: OpenAPI
+    url: openapi/rhythms-connector-requests-api-openapi.yml
+  - type: ErrorCatalog
+    url: errors/rhythms-problem-types.yml
+  - type: DataModel
+    url: data-model/rhythms-data-model.yml
+- aid: rhythms:rhythms-data-sources-api
+  name: Rhythms data_sources API
+  description: The data_sources API from Rhythms — 1 operation(s) for data_sources.
+  humanURL: https://www.rhythms.ai/
+  baseURL: https://api.rhythms.ai
+  tags:
+  - data_sources
+  properties:
+  - type: OpenAPI
+    url: openapi/rhythms-data-sources-api-openapi.yml
+  - type: ErrorCatalog
+    url: errors/rhythms-problem-types.yml
+  - type: DataModel
+    url: data-model/rhythms-data-model.yml
+- aid: rhythms:rhythms-documents-api
+  name: Rhythms documents API
+  description: The documents API from Rhythms — 4 operation(s) for documents.
+  humanURL: https://www.rhythms.ai/
+  baseURL: https://api.rhythms.ai
+  tags:
+  - documents
+  properties:
+  - type: OpenAPI
+    url: openapi/rhythms-documents-api-openapi.yml
+  - type: ErrorCatalog
+    url: errors/rhythms-problem-types.yml
+  - type: DataModel
+    url: data-model/rhythms-data-model.yml
+- aid: rhythms:rhythms-explorer-views-api
+  name: Rhythms explorer_views API
+  description: The explorer_views API from Rhythms — 1 operation(s) for explorer_views.
+  humanURL: https://www.rhythms.ai/
+  baseURL: https://api.rhythms.ai
+  tags:
+  - explorer_views
+  properties:
+  - type: OpenAPI
+    url: openapi/rhythms-explorer-views-api-openapi.yml
+  - type: ErrorCatalog
+    url: errors/rhythms-problem-types.yml
+  - type: DataModel
+    url: data-model/rhythms-data-model.yml
+- aid: rhythms:rhythms-labels-api
+  name: Rhythms labels API
+  description: The labels API from Rhythms — 2 operation(s) for labels.
+  humanURL: https://www.rhythms.ai/
+  baseURL: https://api.rhythms.ai
+  tags:
+  - labels
+  properties:
+  - type: OpenAPI
+    url: openapi/rhythms-labels-api-openapi.yml
+  - type: ErrorCatalog
+    url: errors/rhythms-problem-types.yml
+  - type: DataModel
+    url: data-model/rhythms-data-model.yml
+- aid: rhythms:rhythms-mention-access-checks-api
+  name: Rhythms mention_access_checks API
+  description: The mention_access_checks API from Rhythms — 1 operation(s) for mention_access_checks.
+  humanURL: https://www.rhythms.ai/
+  baseURL: https://api.rhythms.ai
+  tags:
+  - mention_access_checks
+  properties:
+  - type: OpenAPI
+    url: openapi/rhythms-mention-access-checks-api-openapi.yml
+  - type: ErrorCatalog
+    url: errors/rhythms-problem-types.yml
+  - type: DataModel
+    url: data-model/rhythms-data-model.yml
+- aid: rhythms:rhythms-notifications-api
+  name: Rhythms notifications API
+  description: The notifications API from Rhythms — 1 operation(s) for notifications.
+  humanURL: https://www.rhythms.ai/
+  baseURL: https://api.rhythms.ai
+  tags:
+  - notifications
+  properties:
+  - type: OpenAPI
+    url: openapi/rhythms-notifications-api-openapi.yml
+  - type: ErrorCatalog
+    url: errors/rhythms-problem-types.yml
+  - type: DataModel
+    url: data-model/rhythms-data-model.yml
+- aid: rhythms:rhythms-objectives-api
+  name: Rhythms objectives API
+  description: The objectives API from Rhythms — 1 operation(s) for objectives.
+  humanURL: https://www.rhythms.ai/
+  baseURL: https://api.rhythms.ai
+  tags:
+  - objectives
+  properties:
+  - type: OpenAPI
+    url: openapi/rhythms-objectives-api-openapi.yml
+  - type: ErrorCatalog
+    url: errors/rhythms-problem-types.yml
+  - type: DataModel
+    url: data-model/rhythms-data-model.yml
+- aid: rhythms:rhythms-teams-api
+  name: Rhythms teams API
+  description: The teams API from Rhythms — 6 operation(s) for teams.
+  humanURL: https://www.rhythms.ai/
+  baseURL: https://api.rhythms.ai
+  tags:
+  - teams
+  properties:
+  - type: OpenAPI
+    url: openapi/rhythms-teams-api-openapi.yml
+  - type: ErrorCatalog
+    url: errors/rhythms-problem-types.yml
+  - type: DataModel
+    url: data-model/rhythms-data-model.yml
+- aid: rhythms:rhythms-time-periods-api
+  name: Rhythms time_periods API
+  description: The time_periods API from Rhythms — 2 operation(s) for time_periods.
+  humanURL: https://www.rhythms.ai/
+  baseURL: https://api.rhythms.ai
+  tags:
+  - time_periods
+  properties:
+  - type: OpenAPI
+    url: openapi/rhythms-time-periods-api-openapi.yml
+  - type: ErrorCatalog
+    url: errors/rhythms-problem-types.yml
+  - type: DataModel
+    url: data-model/rhythms-data-model.yml
+- aid: rhythms:rhythms-users-api
+  name: Rhythms users API
+  description: The users API from Rhythms — 1 operation(s) for users.
+  humanURL: https://www.rhythms.ai/
+  baseURL: https://api.rhythms.ai
+  tags:
+  - users
+  properties:
+  - type: OpenAPI
+    url: openapi/rhythms-users-api-openapi.yml
+  - type: ErrorCatalog
+    url: errors/rhythms-problem-types.yml
+  - type: DataModel
+    url: data-model/rhythms-data-model.yml
 common:
+- type: DomainSecurity
+  url: security/rhythms-domain-security.yml
+- type: AgenticAccess
+  url: agentic-access/rhythms-agentic-access.yml
+- type: Authentication
+  url: authentication/rhythms-authentication.yml
+- type: Conventions
+  url: conventions/rhythms-conventions.yml
+- type: Conformance
+  url: conformance/rhythms-conformance.yml
+- type: Lifecycle
+  url: lifecycle/rhythms-lifecycle.yml
+- type: MCPServer
+  url: mcp/rhythms-mcp.yml
+- type: LLMsTxt
+  url: llms/rhythms-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
 - type: Website
-  url: https://www.getrhythms.ai/
+  url: https://www.rhythms.ai/
+- type: SignUp
+  url: https://app.rhythms.ai/auth/signup
+- type: Login
+  url: https://app.rhythms.ai/auth/signin
+- type: Pricing
+  url: https://app.rhythms.ai/pricing
+- type: Blog
+  url: https://app.rhythms.ai/blog
+- type: TermsOfService
+  url: https://app.rhythms.ai/terms-of-service
+- type: PrivacyPolicy
+  url: https://app.rhythms.ai/privacy-policy
+- type: Support
+  url: https://app.rhythms.ai/faq
+- type: Integrations
+  url: https://app.rhythms.ai/product/integrations
+- type: StatusPage
+  url: https://status.rhythms.ai/
+- type: TrustCenter
+  url: https://trust.rhythms.ai/
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 15
+  pass: local-v1

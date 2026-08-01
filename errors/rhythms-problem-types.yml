@@ -1,0 +1,42 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/rhythms-openapi-original.json
+format: http-status
+note: Error responses are documented by HTTP status code and description only; the spec declares no application/problem+json
+  schema, so this is not RFC 9457. Envelope shape is not published in the spec.
+problems:
+- status: 400
+  title: Bad Request
+  description: Bad Request - Invalid parameters or malformed request
+  remediation: Validate request parameters and body against the operation schema.
+  operations_count: 25
+- status: 401
+  title: Unauthorized
+  description: Unauthorized - Invalid or missing authentication
+  remediation: Provide a valid authentication credential; the API requires authentication on every endpoint.
+  operations_count: 25
+- status: 403
+  title: Forbidden
+  description: Forbidden - User lacks permission to access this resource
+  remediation: The authenticated user lacks permission for this tenant-scoped resource; request access.
+  operations_count: 25
+- status: 404
+  title: Not Found
+  description: Not Found - Resource does not exist
+  remediation: Verify the resource UUID/ID exists and is within your organization tenant.
+  operations_count: 25
+- status: 422
+  title: Unprocessable Entity
+  description: Unprocessable Entity - Invalid request parameters or validation errors
+  remediation: Correct the failed validations reported in the response.
+  operations_count: 25
+- status: 429
+  title: Too Many Requests
+  description: Too Many Requests - Rate limit exceeded
+  remediation: Back off and retry after the rate-limit window; respect Retry-After if present.
+  operations_count: 24
+- status: 500
+  title: Internal Server Error
+  description: Internal Server Error - Unexpected server error
+  remediation: Retry with backoff; if it persists, contact Rhythms support.
+  operations_count: 24

@@ -1,0 +1,104 @@
+generated: '2026-07-21'
+method: derived
+status: candidate
+source: openapi/rhythms-openapi-original.json
+note: Candidate MCP tool surface derived one-per-operation from the Rhythms OpenAPI. Rhythms supports
+  consuming custom MCP integrations but publishes no first-party hosted MCP server for its own API as
+  of this pass.
+server:
+  name: rhythms
+  transport: http
+tools:
+- name: post_shareable_type_shareable_uuid_access_requests
+  description: Request more access to a shareable resource
+  source_operation: openapi/rhythms-openapi-original.json#post_shareable_type_shareable_uuid_access_requests
+- name: get_shareable_type_shareable_uuid_access_requests_mine
+  description: Get the caller's own pending access request
+  source_operation: openapi/rhythms-openapi-original.json#get_shareable_type_shareable_uuid_access_requests_mine
+- name: post_shareable_type_shareable_uuid_access_requests_resend
+  description: Re-notify the owner/managers about the caller's pending request
+  source_operation: openapi/rhythms-openapi-original.json#post_shareable_type_shareable_uuid_access_requests_resend
+- name: get_chat_refresh_threads_thread_uuid_status
+  description: Get the status of an on-demand refresh
+  source_operation: openapi/rhythms-openapi-original.json#get_chat_refresh_threads_thread_uuid_status
+- name: post_connector_requests
+  description: Record a connector integration request and notify Pylon
+  source_operation: openapi/rhythms-openapi-original.json#post_connector_requests
+- name: get_data_sources_id
+  description: Get a data source
+  source_operation: openapi/rhythms-openapi-original.json#get_data_sources_id
+- name: get_documents
+  description: List documents
+  source_operation: openapi/rhythms-openapi-original.json#get_documents
+- name: post_documents
+  description: Create a new document
+  source_operation: openapi/rhythms-openapi-original.json#post_documents
+- name: get_documents_uuid
+  description: Get a specific document
+  source_operation: openapi/rhythms-openapi-original.json#get_documents_uuid
+- name: put_documents_uuid
+  description: Update document properties
+  source_operation: openapi/rhythms-openapi-original.json#put_documents_uuid
+- name: get_documents_uuid_activities
+  description: List a document's smart activity log
+  source_operation: openapi/rhythms-openapi-original.json#get_documents_uuid_activities
+- name: post_documents_uuid_refresh
+  description: Trigger an on-demand refresh of a document
+  source_operation: openapi/rhythms-openapi-original.json#post_documents_uuid_refresh
+- name: post_explorer_views
+  description: Create a new explorer view
+  source_operation: openapi/rhythms-openapi-original.json#post_explorer_views
+- name: post_internal_notifications_send
+  description: Send a notification to a specific user
+  source_operation: openapi/rhythms-openapi-original.json#post_internal_notifications_send
+- name: get_labels
+  description: List labels
+  source_operation: openapi/rhythms-openapi-original.json#get_labels
+- name: post_labels
+  description: Create a new label
+  source_operation: openapi/rhythms-openapi-original.json#post_labels
+- name: put_labels_id
+  description: Update a label
+  source_operation: openapi/rhythms-openapi-original.json#put_labels_id
+- name: delete_labels_id
+  description: Delete a label
+  source_operation: openapi/rhythms-openapi-original.json#delete_labels_id
+- name: get_shareable_type_shareable_uuid_mention_access_check
+  description: Check which mentioned entities lack access
+  source_operation: openapi/rhythms-openapi-original.json#get_shareable_type_shareable_uuid_mention_access_check
+- name: get_okrs_objectives_show
+  description: Get a specific OKR
+  source_operation: openapi/rhythms-openapi-original.json#get_okrs_objectives_show
+- name: get_okrs_time_periods
+  description: List all time periods
+  source_operation: openapi/rhythms-openapi-original.json#get_okrs_time_periods
+- name: put_okrs_time_periods_id
+  description: Update a time period
+  source_operation: openapi/rhythms-openapi-original.json#put_okrs_time_periods_id
+- name: delete_okrs_time_periods_id
+  description: Delete a time period
+  source_operation: openapi/rhythms-openapi-original.json#delete_okrs_time_periods_id
+- name: get_teams
+  description: List teams and include current owners
+  source_operation: openapi/rhythms-openapi-original.json#get_teams
+- name: post_teams
+  description: Create a new team
+  source_operation: openapi/rhythms-openapi-original.json#post_teams
+- name: put_teams_id
+  description: Update a team
+  source_operation: openapi/rhythms-openapi-original.json#put_teams_id
+- name: put_teams_id_add_members
+  description: Add members to a team
+  source_operation: openapi/rhythms-openapi-original.json#put_teams_id_add_members
+- name: delete_teams_id_remove_member_member_uuid
+  description: Remove one person from a team
+  source_operation: openapi/rhythms-openapi-original.json#delete_teams_id_remove_member_member_uuid
+- name: get_teams_id_owners
+  description: Get team owners only
+  source_operation: openapi/rhythms-openapi-original.json#get_teams_id_owners
+- name: get_teams_id_members
+  description: Get regular team members only
+  source_operation: openapi/rhythms-openapi-original.json#get_teams_id_members
+- name: get_users
+  description: List users
+  source_operation: openapi/rhythms-openapi-original.json#get_users

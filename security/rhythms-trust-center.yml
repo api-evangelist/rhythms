@@ -1,0 +1,13 @@
+generated: '2026-07-21'
+method: searched
+probe: true
+url: https://trust.rhythms.ai/
+platform: Vanta
+certifications: []
+note: 'Verified live: trust.rhythms.ai returns HTTP 200 and is served from Vanta trust-report assets (content-location
+  assets.vanta.com/static/index-trust-report...). The trust center exists and is Vanta-powered; specific
+  framework/certification names are rendered client-side and were not machine-verifiable in this pass,
+  so none are asserted here to avoid fabrication.'
+evidence:
+- source: https://trust.rhythms.ai/
+  signal: HTTP 200; content-location assets.vanta.com/static/index-trust-report.*.html

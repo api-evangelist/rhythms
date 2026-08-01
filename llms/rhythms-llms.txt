@@ -1,0 +1,25 @@
+# Rhythms
+
+> Rhythms is an AI operating partner for teams (built by the Ally.io / Microsoft Viva Goals team) that automates business reviews, pre-briefs, reports, and OKR/goal tracking across hundreds of connected tools. It exposes a multi-tenant REST API and supports custom MCP integrations.
+
+## API
+- [Rhythms API (OpenAPI 3.0)](https://api.rhythms.ai/openapi.json): 31 operations — documents, teams, users, labels, OKR objectives & time periods, data sources, connector & access requests, explorer views. Page-based pagination; Ransack (q) filtering; authentication required; tenant-scoped.
+
+## Docs
+- [Product / Integrations](https://app.rhythms.ai/product/integrations)
+- [FAQ](https://app.rhythms.ai/faq)
+- [Pricing](https://app.rhythms.ai/pricing)
+- [Blog](https://app.rhythms.ai/blog)
+
+## Trust & Status
+- [Trust Center (Vanta)](https://trust.rhythms.ai/)
+- [Status (Atlassian Statuspage)](https://status.rhythms.ai/)
+- [Compliance](https://app.rhythms.ai/product/compliance)
+
+## Legal
+- [Terms of Service](https://app.rhythms.ai/terms-of-service)
+- [Privacy Policy](https://app.rhythms.ai/privacy-policy)
+
+## Access
+- [Sign up](https://app.rhythms.ai/auth/signup)
+- [Login](https://app.rhythms.ai/auth/signin)

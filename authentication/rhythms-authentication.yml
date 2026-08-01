@@ -1,0 +1,13 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/rhythms-openapi-original.json
+summary:
+  types:
+  - undocumented
+  required: true
+  declared_in_spec: false
+note: The published OpenAPI declares no securitySchemes, but every endpoint requires authentication (api.rhythms.ai
+  root returns HTTP 401) and info.description states secure authentication with proper authorization controls.
+  Requests are automatically scoped to the caller's organization tenant. The concrete credential type
+  (bearer token / API key) is not published in the public spec.
+schemes: []

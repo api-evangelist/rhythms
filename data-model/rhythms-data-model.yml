@@ -1,0 +1,89 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/rhythms-openapi-original.json
+note: Derived from OpenAPI paths and request bodies; the spec declares no components.schemas, so entity
+  attributes are not enumerable from the spec.
+entities:
+- entity: access_requests
+  operations:
+  - post_shareable_type_shareable_uuid_access_requests
+  - get_shareable_type_shareable_uuid_access_requests_mine
+  - post_shareable_type_shareable_uuid_access_requests_resend
+- entity: chat_refresh_threads
+  operations:
+  - get_chat_refresh_threads_thread_uuid_status
+- entity: connector_requests
+  operations:
+  - post_connector_requests
+- entity: data_sources
+  operations:
+  - get_data_sources_id
+- entity: documents
+  operations:
+  - get_documents
+  - post_documents
+  - get_documents_uuid
+  - put_documents_uuid
+  - get_documents_uuid_activities
+  - post_documents_uuid_refresh
+- entity: explorer_views
+  operations:
+  - post_explorer_views
+- entity: notifications
+  operations:
+  - post_internal_notifications_send
+- entity: labels
+  operations:
+  - get_labels
+  - post_labels
+  - put_labels_id
+  - delete_labels_id
+- entity: mention_access_checks
+  operations:
+  - get_shareable_type_shareable_uuid_mention_access_check
+- entity: objectives
+  operations:
+  - get_okrs_objectives_show
+- entity: time_periods
+  operations:
+  - get_okrs_time_periods
+  - put_okrs_time_periods_id
+  - delete_okrs_time_periods_id
+- entity: teams
+  operations:
+  - get_teams
+  - post_teams
+  - put_teams_id
+  - put_teams_id_add_members
+  - delete_teams_id_remove_member_member_uuid
+  - get_teams_id_owners
+  - get_teams_id_members
+- entity: users
+  operations:
+  - get_users
+relationships:
+- from: teams
+  to: users
+  type: has_many
+  via: members
+  evidence: GET /teams/{id}/members, PUT /teams/{id}/add_members
+- from: teams
+  to: users
+  type: has_many
+  via: owners
+  evidence: GET /teams/{id}/owners
+- from: documents
+  to: documents
+  type: has_one
+  via: layout_uuid
+  evidence: post_documents requestBody layout_uuid
+- from: objectives
+  to: time_periods
+  type: belongs_to
+  via: time_period
+  evidence: okrs/objectives and okrs/time_periods share the OKR domain
+- from: access_requests
+  to: shareable
+  type: belongs_to
+  via: shareable_uuid
+  evidence: /{shareable_type}/{shareable_uuid}/access_requests

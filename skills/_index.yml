@@ -1,0 +1,33 @@
+generated: '2026-07-21'
+method: generated
+api: openapi/rhythms-openapi-original.json
+skills:
+- file: rhythms-manage-documents.md
+  name: Create and manage Rhythms documents
+  api: openapi/rhythms-openapi-original.json
+  operations:
+  - post_documents
+  - get_documents
+  - get_documents_uuid
+  - put_documents_uuid
+  - post_documents_uuid_refresh
+  - get_documents_uuid_activities
+- file: rhythms-manage-teams.md
+  name: Manage Rhythms teams and members
+  api: openapi/rhythms-openapi-original.json
+  operations:
+  - get_teams
+  - post_teams
+  - put_teams_id
+  - put_teams_id_add_members
+  - get_teams_id_members
+  - get_teams_id_owners
+  - delete_teams_id_remove_member_member_uuid
+- file: rhythms-track-okrs.md
+  name: Track OKR objectives and time periods
+  api: openapi/rhythms-openapi-original.json
+  operations:
+  - get_okrs_time_periods
+  - put_okrs_time_periods_id
+  - delete_okrs_time_periods_id
+  - get_okrs_objectives_show

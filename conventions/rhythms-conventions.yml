@@ -1,0 +1,40 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/rhythms-openapi-original.json
+authentication:
+  style: required on every endpoint
+  declared_in_spec: false
+  note: Spec declares no securitySchemes; info.description states secure authentication with authorization
+    controls. Root returns HTTP 401 without credentials.
+multi_tenancy:
+  model: per-organization tenant
+  note: All requests are automatically scoped to the caller's organization tenant.
+pagination:
+  style: page-number
+  params:
+  - page
+  - per_page
+  - limit
+  - limit_max
+  - count
+  note: Page-based pagination; page selects the page, per_page/limit control page size, limit_max caps
+    size, count requests total count.
+filtering:
+  style: Ransack query DSL
+  params:
+  - q
+  note: Advanced filtering via the Ransack query DSL exposed through the q parameter.
+idempotency:
+  supported: false
+  note: No Idempotency-Key header or parameter is documented in the spec.
+rate_limiting:
+  signaled: true
+  note: HTTP 429 Too Many Requests is a documented response across operations.
+media_type: application/json
+identifiers:
+  note: Resources are addressed by numeric id or UUID (uuid/shareable_uuid/thread_uuid/member_uuid) depending
+    on resource.
+cross_links:
+  errors: errors/rhythms-problem-types.yml
+  authentication: authentication/rhythms-authentication.yml
+  lifecycle: lifecycle/rhythms-lifecycle.yml

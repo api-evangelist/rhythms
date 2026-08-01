@@ -1,0 +1,29 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/rhythms-openapi-original.json
+standards:
+- id: openapi-3.0
+  conforms: true
+  evidence: 'openapi: 3.0.0 document published at api.rhythms.ai/openapi.json'
+- id: rest
+  conforms: true
+  evidence: resource-oriented endpoints over HTTP verbs, JSON media type
+- id: oauth2
+  conforms: false
+  evidence: no oauth2 securityScheme declared in spec
+- id: oidc
+  conforms: false
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: error responses declare no application/problem+json schema
+- id: rfc6585-429
+  conforms: true
+  evidence: 429 Too Many Requests documented across operations
+- id: pagination
+  conforms: true
+  evidence: page/per_page/limit parameters across list operations
+- id: idempotency
+  conforms: false
+  evidence: no Idempotency-Key documented
+- id: json-api
+  conforms: false

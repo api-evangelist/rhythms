@@ -1,0 +1,15 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Rhythms
+  version: 1.0.0
+extends: openapi/rhythms-openapi-original.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-enriched: '2026-07-21'
+    x-apievangelist-notes: Multi-tenant REST API; page-based pagination; Ransack (q) filtering; auth required
+      but scheme undeclared in spec.
+- target: $.info
+  update:
+    x-apievangelist-conventions: conventions/rhythms-conventions.yml
+    x-apievangelist-errors: errors/rhythms-problem-types.yml

@@ -1,0 +1,38 @@
+{
+  "provider": "rhythms",
+  "sources": [
+    "rhythms-access-requests-api-openapi.yml",
+    "rhythms-chat-refresh-threads-api-openapi.yml",
+    "rhythms-connector-requests-api-openapi.yml",
+    "rhythms-data-sources-api-openapi.yml",
+    "rhythms-documents-api-openapi.yml",
+    "rhythms-explorer-views-api-openapi.yml",
+    "rhythms-labels-api-openapi.yml",
+    "rhythms-mention-access-checks-api-openapi.yml",
+    "rhythms-notifications-api-openapi.yml",
+    "rhythms-objectives-api-openapi.yml",
+    "rhythms-teams-api-openapi.yml",
+    "rhythms-time-periods-api-openapi.yml",
+    "rhythms-users-api-openapi.yml"
+  ],
+  "outputs": [
+    "rhythms-access-requests-api-openapi.yml",
+    "rhythms-chat-refresh-threads-api-openapi.yml",
+    "rhythms-connector-requests-api-openapi.yml",
+    "rhythms-data-sources-api-openapi.yml",
+    "rhythms-documents-api-openapi.yml",
+    "rhythms-explorer-views-api-openapi.yml",
+    "rhythms-labels-api-openapi.yml",
+    "rhythms-mention-access-checks-api-openapi.yml",
+    "rhythms-notifications-api-openapi.yml",
+    "rhythms-objectives-api-openapi.yml",
+    "rhythms-teams-api-openapi.yml",
+    "rhythms-time-periods-api-openapi.yml",
+    "rhythms-users-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
