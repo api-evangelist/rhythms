@@ -232,6 +232,8 @@ apis:
   - type: DataModel
     url: data-model/rhythms-data-model.yml
 common:
+- type: Overlay
+  url: overlays/rhythms-openapi-overlay.yaml
 - type: DomainSecurity
   url: security/rhythms-domain-security.yml
 - type: AgenticAccess
