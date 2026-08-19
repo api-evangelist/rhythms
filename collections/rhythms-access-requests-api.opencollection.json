@@ -1,0 +1,97 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rhythms (params in:body) access_requests API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "access_requests",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Request more access to a shareable resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rhythms.ai/:shareable_type/:shareable_uuid/access_requests",
+            "params": [
+              {
+                "name": "shareable_type",
+                "value": "",
+                "type": "path",
+                "description": "Type of shareable resource"
+              },
+              {
+                "name": "shareable_uuid",
+                "value": "",
+                "type": "path",
+                "description": "<tenant_uuid>_<resource_uuid> or resource UUID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Request a higher access level on a shareable (document, view, or playbook). A pending request is persisted (created, or upgraded in place if one already exists) and the resource's owner and managers are notified when a new request is created. The request is auto-resolved once a later grant satisfies it. A request the user already satisfies (owner or already at/above the requested level) is a no-op."
+        },
+        {
+          "info": {
+            "name": "Get the caller's own pending access request",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rhythms.ai/:shareable_type/:shareable_uuid/access_requests/mine",
+            "params": [
+              {
+                "name": "shareable_type",
+                "value": "",
+                "type": "path",
+                "description": "Type of shareable resource"
+              },
+              {
+                "name": "shareable_uuid",
+                "value": "",
+                "type": "path",
+                "description": "<tenant_uuid>_<resource_uuid> or resource UUID"
+              }
+            ]
+          },
+          "docs": "Returns the current user's own pending access request for a shareable (or none). Self-scoped: it only ever reports the caller's request, so it leaks nothing about the resource or other users' requests, and (like create) requires no existing access. The UI uses this to show a persistent \"Access requested\" state across page refreshes."
+        },
+        {
+          "info": {
+            "name": "Re-notify the owner/managers about the caller's pending request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rhythms.ai/:shareable_type/:shareable_uuid/access_requests/resend",
+            "params": [
+              {
+                "name": "shareable_type",
+                "value": "",
+                "type": "path",
+                "description": "Type of shareable resource"
+              },
+              {
+                "name": "shareable_uuid",
+                "value": "",
+                "type": "path",
+                "description": "<tenant_uuid>_<resource_uuid> or resource UUID"
+              }
+            ]
+          },
+          "docs": "Re-sends the access-request notification for the current user's own pending request (in-app re-surface + email), throttled to once per hour. Lets a requestor nudge an ignored request instead of being stuck. Self-scoped and tenant-scoped like the other actions. Returns { status: \"resent\" } when re-notified, { status: \"throttled\" } within the window, or { status: \"no_pending_request\" } when the caller has none."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

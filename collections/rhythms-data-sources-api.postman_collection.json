@@ -1,0 +1,310 @@
+{
+  "item": [
+    {
+      "id": "49e3f41e-5b3d-448c-8ac0-3e79d67e41b3",
+      "name": "data_sources",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "35cd60bd-5684-49c7-8aaf-9c93d145cec8",
+          "name": "Get a data source",
+          "request": {
+            "name": "Get a data source",
+            "description": {
+              "content": "Retrieves a data source by its composite primary key or by UUID within the current tenant.\n\nThe user must have permission to view the linked goal or initiative.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data_sources",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Composite primary key in format '<tenant_uuid>_<data_source_uuid>' or data source UUID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f49cb19d-f0d5-4b7d-ac07-9c3c619d4b90",
+              "name": "Data source found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data_sources",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Composite primary key in format '<tenant_uuid>_<data_source_uuid>' or data source UUID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": true,\n    \"key_1\": false,\n    \"key_2\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "23206216-842e-45e5-bec1-3790cc341d62",
+              "name": "Bad Request - Invalid parameters or malformed request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data_sources",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Composite primary key in format '<tenant_uuid>_<data_source_uuid>' or data source UUID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "de015ae8-34bd-42a3-a2ed-976a04026650",
+              "name": "Unauthorized - Invalid or missing authentication",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data_sources",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Composite primary key in format '<tenant_uuid>_<data_source_uuid>' or data source UUID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c143c69b-86af-45af-bf71-137cb2138df5",
+              "name": "Forbidden - User lacks permission to access this resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data_sources",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Composite primary key in format '<tenant_uuid>_<data_source_uuid>' or data source UUID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "811ea7d9-a68d-4496-a446-9a8bb6a4efe9",
+              "name": "Not Found - Resource does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data_sources",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Composite primary key in format '<tenant_uuid>_<data_source_uuid>' or data source UUID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eff56e9e-5071-47ae-8ddf-4b55991708be",
+              "name": "Unprocessable Entity - Invalid request parameters or validation errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data_sources",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Composite primary key in format '<tenant_uuid>_<data_source_uuid>' or data source UUID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.rhythms.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f5b8669e-00ce-43ca-8b37-3edafc78b8a2",
+    "name": "Rhythms (params in:body) access_requests data_sources API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\n<p># RhythmsAI API</p>\n\n<p>The RhythmsAI API provides a comprehensive platform for team productivity, goal tracking, and workflow automation. Built with multi-tenant architecture, it enables organizations to manage objectives, track progress, and integrate with popular productivity tools.</p>\n\n<p>## API Structure</p>\n<ul><li>\n<p>**RESTful Design**: Clean, predictable REST endpoints following industry standards</p>\n</li><li>\n<p><strong>Multi-tenant</strong>: All data is automatically scoped to your organization’s tenant</p>\n</li><li>\n<p><strong>Authentication</strong>: Secure authentication with proper authorization controls</p>\n</li><li>\n<p><strong>Pagination</strong>: Efficient data retrieval with built-in pagination support</p>\n</li><li>\n<p><strong>Filtering</strong>: Advanced filtering capabilities using Ransack query DSL</p>\n</li></ul>\n\n<p>## Getting Started</p>\n\n<p>All API endpoints require authentication. Once authenticated, your requests will be automatically scoped to your organization’s data. The API supports JSON request/response format and follows standard HTTP status codes for success and error handling.</p>\n\n<p>For integration support and detailed examples, refer to the specific endpoint documentation below.</p>\n",
+      "type": "text/plain"
+    }
+  }
+}

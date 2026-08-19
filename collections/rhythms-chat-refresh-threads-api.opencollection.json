@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rhythms (params in:body) access_requests chat_refresh_threads API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "chat_refresh_threads",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the status of an on-demand refresh",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rhythms.ai/chat/refresh_threads/:thread_uuid/status",
+            "params": [
+              {
+                "name": "thread_uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the refresh thread returned by POST /documents/:uuid/refresh"
+              }
+            ]
+          },
+          "docs": "Poll the status of an on-demand refresh started by\n`POST /documents/:uuid/refresh`. Pass the `thread_uuid` returned by\nthat call. Returns a coarse `state`\n(`running` | `completed` | `completed_unknown_outcome` | `failed`),\nthe skill-level `skill_status` when parseable\n(`completed` | `completed_no_changes` | `completed_locked` | `failed`),\na one-line `summary`, and `completed_at` when the run terminates.\n\n`completed_unknown_outcome` means the agent finished talking but no\nrecognized terminal stat"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

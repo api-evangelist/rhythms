@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rhythms (params in:body) access_requests mention_access_checks API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "mention_access_checks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Check which mentioned entities lack access",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rhythms.ai/:shareable_type/:shareable_uuid/mention_access_check",
+            "params": [
+              {
+                "name": "shareable_type",
+                "value": "",
+                "type": "path",
+                "description": "Allowed shareable type segment (e.g. 'documents')"
+              },
+              {
+                "name": "shareable_uuid",
+                "value": "",
+                "type": "path",
+                "description": "Shareable identifier (composite primary key or UUID)"
+              },
+              {
+                "name": "user_uuids",
+                "value": "",
+                "type": "query",
+                "description": "UUIDs of mentioned users to check"
+              },
+              {
+                "name": "team_uuids",
+                "value": "",
+                "type": "query",
+                "description": "UUIDs of mentioned teams to check"
+              }
+            ]
+          },
+          "docs": "Reports which mentioned users and teams lack view access to a shareable and\nwhether the caller may grant them access. Powers the proactive\n\"grant access at mention\" flow across every shareable type.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

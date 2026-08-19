@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rhythms (params in:body) access_requests explorer_views API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "explorer_views",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a new explorer view",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rhythms.ai/explorer_views",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new explorer view (ObjectiveView, InitiativeView, or ReportsView) with the provided attributes."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

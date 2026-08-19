@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rhythms (params in:body) access_requests connector_requests API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "connector_requests",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Record a connector integration request and notify Pylon",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rhythms.ai/connector_requests",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Persists the requested connector on `current_user.tenant.setting.requested_connections` (idempotent, normalized by case + collapsed whitespace) and pages Pylon by creating an in-app chat issue attributed to the requester. Used by both the admin Connectors page (catalog tile + free-form) and the My Connectors page (free-form). Requires PYLON_ISSUES_API_TOKEN + PYLON_APP_ID for the Pylon side; persistence still happens when those are unset. Authenticated tenant members only; the workspace is alway"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

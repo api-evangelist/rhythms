@@ -1,0 +1,186 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rhythms (params in:body) access_requests documents API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "documents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rhythms.ai/documents",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination (default: 1)"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of records per page (default: 20, max: 100)"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Alias for per_page - number of records per page"
+              },
+              {
+                "name": "limit_max",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records per page (overrides limit if not set)"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Set to 'true' to include total count in pagy metadata (data.pagy.count). Use for count/total queries instead of paginating through all pages."
+              },
+              {
+                "name": "explicitly_shared",
+                "value": "",
+                "type": "query",
+                "description": "Filter to show only explicitly shared documents"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Ransack query parameters for filtering. In query strings, use bracket notation: q[name_cont]=john&q[status_eq]=active&q[s]=name+asc. Keys are attribute names with predicates: _cont (contains), _eq (equals), _in (array membership), _gteq (>=), _lteq (<=), _present (not null), _null (is null). The \"s\" key sorts results (e.g., q[s]=created_at+desc). Example query string: ?q[name_cont]=john&q[s]=name+asc filters names containing \"john\" sorted by name ascending."
+              }
+            ]
+          },
+          "docs": "Retrieves documents for the current tenant.\n\n\nThis endpoint supports filtering and pagination through query parameters. Available ransackable attributes: uuid, name, view_uuid, name, creator_uuid, layout_uuid, playbook_uuid, status, content_type, created_at, updated_at."
+        },
+        {
+          "info": {
+            "name": "Create a new document",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rhythms.ai/documents",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new document or layout. Optionally base it on an existing layout."
+        },
+        {
+          "info": {
+            "name": "Get a specific document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rhythms.ai/documents/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "<tenant_uuid>_<document_uuid>"
+              }
+            ]
+          },
+          "docs": "Retrieves a document with content fetched from Tiptap collaboration server. Falls back to database content if Tiptap is unavailable."
+        },
+        {
+          "info": {
+            "name": "Update document properties",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.rhythms.ai/documents/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "<tenant_uuid>_<document_uuid>"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update document properties including status, name, instructions, and layout association.\n\nUse this endpoint to:\n- Update the document name\n- Update instructions\n- Change the document status (completed, draft, published, archived)\n- Associate the document with a layout (e.g., after saving a new layout from a custom document)\n\nAt least one parameter (name, instructions, status, or layout_uuid) must be provided.\n"
+        },
+        {
+          "info": {
+            "name": "List a document's smart activity log",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rhythms.ai/documents/:uuid/activities",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "<tenant_uuid>_<document_uuid>"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Max entries per page (default 100, newest first)"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (1-based) for older entries"
+              },
+              {
+                "name": "since",
+                "value": "",
+                "type": "query",
+                "description": "ISO-8601 timestamp; only entries at or after this time are returned"
+              }
+            ]
+          },
+          "docs": "Returns the grouped change/refresh activity entries for a document, newest first. Paginated via `limit`/`page` (default 100 newest); pass `since` (ISO-8601) to scope to recent activity (e.g. 'what changed in the last few days')."
+        },
+        {
+          "info": {
+            "name": "Trigger an on-demand refresh of a document",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rhythms.ai/documents/:uuid/refresh",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "<tenant_uuid>_<document_uuid>"
+              }
+            ]
+          },
+          "docs": "Triggers an on-demand refresh of the target document. Opens an ephemeral\nChat::Thread, posts a refresh prompt, and kicks off the universal chat\nagent which invokes the `document_refresh` skill. Returns immediately\nwith a `thread_uuid` tracking handle; callers poll the thread or re-read\nthe document to see the refresh outcome.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

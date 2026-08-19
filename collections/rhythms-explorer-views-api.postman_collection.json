@@ -1,0 +1,382 @@
+{
+  "item": [
+    {
+      "id": "3a69104d-fc95-44d6-b34e-86e6f0e9f935",
+      "name": "explorer_views",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ca11d15a-2523-48cc-8199-d4812544b0cc",
+          "name": "Create a new explorer view",
+          "request": {
+            "name": "Create a new explorer view",
+            "description": {
+              "content": "Creates a new explorer view (ObjectiveView, InitiativeView, or ReportsView) with the provided attributes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "explorer_views"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"explorer_view\": {\n    \"name\": \"<string>\",\n    \"type\": \"ObjectiveView\",\n    \"status\": \"published\",\n    \"description\": \"<string>\",\n    \"entity_type\": \"<string>\",\n    \"entity_uuid\": \"<string>\",\n    \"filters\": {\n      \"with_time_periods_hierarchy\": {\n        \"time_period_uuid_in\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"include_all_nested_time_periods\": \"<boolean>\"\n      },\n      \"with_teams_hierarchy\": {\n        \"teams_uuid_in\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"include_immediate_subteams\": \"<boolean>\",\n        \"include_all_subteams\": \"<boolean>\"\n      },\n      \"with_owners_hierarchy\": {\n        \"owners_uuid_in\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"include_direct_reports\": \"<boolean>\",\n        \"include_all_reports\": \"<boolean>\",\n        \"include_delegates\": false\n      },\n      \"object_type_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"flat_list\": \"<boolean>\",\n      \"with_last_checkin_date\": {\n        \"operator\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      \"current_status_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"checkin_status_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"with_source\": {\n        \"type\": \"<string>\",\n        \"uuid\": \"<string>\"\n      },\n      \"uuid_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"with_any_labels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_department_name_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_division_name_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_job_title_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_cost_center_name_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_employee_type_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_1_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_2_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_3_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_4_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_5_in\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"preferences\": {\n      \"reports\": {\n        \"okrs_with_checkins\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"checkin_cycle_compliance\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"okrs_with_alignment\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"users_with_okrs\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"okrs_with_integrations\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"performance_report\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6323d3d1-c0e6-4619-aeaf-c74102f513bb",
+              "name": "Created explorer view details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "explorer_views"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"explorer_view\": {\n    \"name\": \"<string>\",\n    \"type\": \"ObjectiveView\",\n    \"status\": \"published\",\n    \"description\": \"<string>\",\n    \"entity_type\": \"<string>\",\n    \"entity_uuid\": \"<string>\",\n    \"filters\": {\n      \"with_time_periods_hierarchy\": {\n        \"time_period_uuid_in\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"include_all_nested_time_periods\": \"<boolean>\"\n      },\n      \"with_teams_hierarchy\": {\n        \"teams_uuid_in\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"include_immediate_subteams\": \"<boolean>\",\n        \"include_all_subteams\": \"<boolean>\"\n      },\n      \"with_owners_hierarchy\": {\n        \"owners_uuid_in\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"include_direct_reports\": \"<boolean>\",\n        \"include_all_reports\": \"<boolean>\",\n        \"include_delegates\": false\n      },\n      \"object_type_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"flat_list\": \"<boolean>\",\n      \"with_last_checkin_date\": {\n        \"operator\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      \"current_status_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"checkin_status_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"with_source\": {\n        \"type\": \"<string>\",\n        \"uuid\": \"<string>\"\n      },\n      \"uuid_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"with_any_labels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_department_name_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_division_name_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_job_title_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_cost_center_name_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_employee_type_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_1_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_2_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_3_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_4_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_5_in\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"preferences\": {\n      \"reports\": {\n        \"okrs_with_checkins\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"checkin_cycle_compliance\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"okrs_with_alignment\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"users_with_okrs\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"okrs_with_integrations\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"performance_report\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"type\": \"string\",\n    \"record\": {\n      \"key_0\": 2718\n    },\n    \"checks\": {\n      \"key_0\": 2176.237697101143,\n      \"key_1\": 365.4805792232085,\n      \"key_2\": 4370\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9f965469-fadf-4958-9af3-19f64065366d",
+              "name": "Bad Request - Invalid parameters or malformed request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "explorer_views"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"explorer_view\": {\n    \"name\": \"<string>\",\n    \"type\": \"ObjectiveView\",\n    \"status\": \"published\",\n    \"description\": \"<string>\",\n    \"entity_type\": \"<string>\",\n    \"entity_uuid\": \"<string>\",\n    \"filters\": {\n      \"with_time_periods_hierarchy\": {\n        \"time_period_uuid_in\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"include_all_nested_time_periods\": \"<boolean>\"\n      },\n      \"with_teams_hierarchy\": {\n        \"teams_uuid_in\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"include_immediate_subteams\": \"<boolean>\",\n        \"include_all_subteams\": \"<boolean>\"\n      },\n      \"with_owners_hierarchy\": {\n        \"owners_uuid_in\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"include_direct_reports\": \"<boolean>\",\n        \"include_all_reports\": \"<boolean>\",\n        \"include_delegates\": false\n      },\n      \"object_type_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"flat_list\": \"<boolean>\",\n      \"with_last_checkin_date\": {\n        \"operator\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      \"current_status_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"checkin_status_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"with_source\": {\n        \"type\": \"<string>\",\n        \"uuid\": \"<string>\"\n      },\n      \"uuid_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"with_any_labels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_department_name_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_division_name_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_job_title_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_cost_center_name_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_employee_type_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_1_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_2_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_3_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_4_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_5_in\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"preferences\": {\n      \"reports\": {\n        \"okrs_with_checkins\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"checkin_cycle_compliance\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"okrs_with_alignment\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"users_with_okrs\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"okrs_with_integrations\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"performance_report\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "21d700d8-709b-40d9-b8d1-31d5560c6bd3",
+              "name": "Unauthorized - Invalid or missing authentication",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "explorer_views"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"explorer_view\": {\n    \"name\": \"<string>\",\n    \"type\": \"ObjectiveView\",\n    \"status\": \"published\",\n    \"description\": \"<string>\",\n    \"entity_type\": \"<string>\",\n    \"entity_uuid\": \"<string>\",\n    \"filters\": {\n      \"with_time_periods_hierarchy\": {\n        \"time_period_uuid_in\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"include_all_nested_time_periods\": \"<boolean>\"\n      },\n      \"with_teams_hierarchy\": {\n        \"teams_uuid_in\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"include_immediate_subteams\": \"<boolean>\",\n        \"include_all_subteams\": \"<boolean>\"\n      },\n      \"with_owners_hierarchy\": {\n        \"owners_uuid_in\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"include_direct_reports\": \"<boolean>\",\n        \"include_all_reports\": \"<boolean>\",\n        \"include_delegates\": false\n      },\n      \"object_type_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"flat_list\": \"<boolean>\",\n      \"with_last_checkin_date\": {\n        \"operator\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      \"current_status_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"checkin_status_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"with_source\": {\n        \"type\": \"<string>\",\n        \"uuid\": \"<string>\"\n      },\n      \"uuid_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"with_any_labels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_department_name_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_division_name_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_job_title_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_cost_center_name_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_employee_type_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_1_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_2_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_3_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_4_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_5_in\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"preferences\": {\n      \"reports\": {\n        \"okrs_with_checkins\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"checkin_cycle_compliance\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"okrs_with_alignment\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"users_with_okrs\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"okrs_with_integrations\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"performance_report\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "18474d62-47d8-45fc-a150-61bab4c53676",
+              "name": "Forbidden - User lacks permission to access this resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "explorer_views"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"explorer_view\": {\n    \"name\": \"<string>\",\n    \"type\": \"ObjectiveView\",\n    \"status\": \"published\",\n    \"description\": \"<string>\",\n    \"entity_type\": \"<string>\",\n    \"entity_uuid\": \"<string>\",\n    \"filters\": {\n      \"with_time_periods_hierarchy\": {\n        \"time_period_uuid_in\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"include_all_nested_time_periods\": \"<boolean>\"\n      },\n      \"with_teams_hierarchy\": {\n        \"teams_uuid_in\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"include_immediate_subteams\": \"<boolean>\",\n        \"include_all_subteams\": \"<boolean>\"\n      },\n      \"with_owners_hierarchy\": {\n        \"owners_uuid_in\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"include_direct_reports\": \"<boolean>\",\n        \"include_all_reports\": \"<boolean>\",\n        \"include_delegates\": false\n      },\n      \"object_type_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"flat_list\": \"<boolean>\",\n      \"with_last_checkin_date\": {\n        \"operator\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      \"current_status_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"checkin_status_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"with_source\": {\n        \"type\": \"<string>\",\n        \"uuid\": \"<string>\"\n      },\n      \"uuid_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"with_any_labels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_department_name_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_division_name_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_job_title_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_cost_center_name_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_employee_type_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_1_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_2_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_3_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_4_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_5_in\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"preferences\": {\n      \"reports\": {\n        \"okrs_with_checkins\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"checkin_cycle_compliance\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"okrs_with_alignment\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"users_with_okrs\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"okrs_with_integrations\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"performance_report\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8a47ef1c-08f7-4628-bdae-8be1fdd7c9fb",
+              "name": "Not Found - Resource does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "explorer_views"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"explorer_view\": {\n    \"name\": \"<string>\",\n    \"type\": \"ObjectiveView\",\n    \"status\": \"published\",\n    \"description\": \"<string>\",\n    \"entity_type\": \"<string>\",\n    \"entity_uuid\": \"<string>\",\n    \"filters\": {\n      \"with_time_periods_hierarchy\": {\n        \"time_period_uuid_in\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"include_all_nested_time_periods\": \"<boolean>\"\n      },\n      \"with_teams_hierarchy\": {\n        \"teams_uuid_in\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"include_immediate_subteams\": \"<boolean>\",\n        \"include_all_subteams\": \"<boolean>\"\n      },\n      \"with_owners_hierarchy\": {\n        \"owners_uuid_in\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"include_direct_reports\": \"<boolean>\",\n        \"include_all_reports\": \"<boolean>\",\n        \"include_delegates\": false\n      },\n      \"object_type_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"flat_list\": \"<boolean>\",\n      \"with_last_checkin_date\": {\n        \"operator\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      \"current_status_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"checkin_status_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"with_source\": {\n        \"type\": \"<string>\",\n        \"uuid\": \"<string>\"\n      },\n      \"uuid_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"with_any_labels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_department_name_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_division_name_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_job_title_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_cost_center_name_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_employee_type_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_1_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_2_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_3_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_4_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_5_in\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"preferences\": {\n      \"reports\": {\n        \"okrs_with_checkins\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"checkin_cycle_compliance\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"okrs_with_alignment\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"users_with_okrs\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"okrs_with_integrations\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"performance_report\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1a8d352b-809d-44f8-8435-ba49a12031e6",
+              "name": "Unprocessable Entity - Invalid request parameters or validation errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "explorer_views"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"explorer_view\": {\n    \"name\": \"<string>\",\n    \"type\": \"ObjectiveView\",\n    \"status\": \"published\",\n    \"description\": \"<string>\",\n    \"entity_type\": \"<string>\",\n    \"entity_uuid\": \"<string>\",\n    \"filters\": {\n      \"with_time_periods_hierarchy\": {\n        \"time_period_uuid_in\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"include_all_nested_time_periods\": \"<boolean>\"\n      },\n      \"with_teams_hierarchy\": {\n        \"teams_uuid_in\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"include_immediate_subteams\": \"<boolean>\",\n        \"include_all_subteams\": \"<boolean>\"\n      },\n      \"with_owners_hierarchy\": {\n        \"owners_uuid_in\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"include_direct_reports\": \"<boolean>\",\n        \"include_all_reports\": \"<boolean>\",\n        \"include_delegates\": false\n      },\n      \"object_type_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"flat_list\": \"<boolean>\",\n      \"with_last_checkin_date\": {\n        \"operator\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      \"current_status_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"checkin_status_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"with_source\": {\n        \"type\": \"<string>\",\n        \"uuid\": \"<string>\"\n      },\n      \"uuid_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"with_any_labels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_department_name_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_division_name_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_job_title_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_cost_center_name_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_employee_type_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_1_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_2_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_3_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_4_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_5_in\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"preferences\": {\n      \"reports\": {\n        \"okrs_with_checkins\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"checkin_cycle_compliance\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"okrs_with_alignment\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"users_with_okrs\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"okrs_with_integrations\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"performance_report\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "859e7b35-a1b8-4430-9d5f-138b13170c85",
+              "name": "Too Many Requests - Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "explorer_views"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"explorer_view\": {\n    \"name\": \"<string>\",\n    \"type\": \"ObjectiveView\",\n    \"status\": \"published\",\n    \"description\": \"<string>\",\n    \"entity_type\": \"<string>\",\n    \"entity_uuid\": \"<string>\",\n    \"filters\": {\n      \"with_time_periods_hierarchy\": {\n        \"time_period_uuid_in\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"include_all_nested_time_periods\": \"<boolean>\"\n      },\n      \"with_teams_hierarchy\": {\n        \"teams_uuid_in\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"include_immediate_subteams\": \"<boolean>\",\n        \"include_all_subteams\": \"<boolean>\"\n      },\n      \"with_owners_hierarchy\": {\n        \"owners_uuid_in\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"include_direct_reports\": \"<boolean>\",\n        \"include_all_reports\": \"<boolean>\",\n        \"include_delegates\": false\n      },\n      \"object_type_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"flat_list\": \"<boolean>\",\n      \"with_last_checkin_date\": {\n        \"operator\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      \"current_status_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"checkin_status_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"with_source\": {\n        \"type\": \"<string>\",\n        \"uuid\": \"<string>\"\n      },\n      \"uuid_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"with_any_labels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_department_name_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_division_name_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_job_title_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_cost_center_name_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_employee_type_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_1_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_2_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_3_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_4_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_5_in\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"preferences\": {\n      \"reports\": {\n        \"okrs_with_checkins\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"checkin_cycle_compliance\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"okrs_with_alignment\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"users_with_okrs\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"okrs_with_integrations\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"performance_report\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5ec3878c-bc4d-432f-a4ae-142ae814c19c",
+              "name": "Internal Server Error - Unexpected server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "explorer_views"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"explorer_view\": {\n    \"name\": \"<string>\",\n    \"type\": \"ObjectiveView\",\n    \"status\": \"published\",\n    \"description\": \"<string>\",\n    \"entity_type\": \"<string>\",\n    \"entity_uuid\": \"<string>\",\n    \"filters\": {\n      \"with_time_periods_hierarchy\": {\n        \"time_period_uuid_in\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"include_all_nested_time_periods\": \"<boolean>\"\n      },\n      \"with_teams_hierarchy\": {\n        \"teams_uuid_in\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"include_immediate_subteams\": \"<boolean>\",\n        \"include_all_subteams\": \"<boolean>\"\n      },\n      \"with_owners_hierarchy\": {\n        \"owners_uuid_in\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"include_direct_reports\": \"<boolean>\",\n        \"include_all_reports\": \"<boolean>\",\n        \"include_delegates\": false\n      },\n      \"object_type_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"flat_list\": \"<boolean>\",\n      \"with_last_checkin_date\": {\n        \"operator\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      \"current_status_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"checkin_status_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"with_source\": {\n        \"type\": \"<string>\",\n        \"uuid\": \"<string>\"\n      },\n      \"uuid_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"with_any_labels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_department_name_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_division_name_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_job_title_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_cost_center_name_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_employee_type_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_1_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_2_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_3_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_4_in\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"owners_profile_custom_field_5_in\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"preferences\": {\n      \"reports\": {\n        \"okrs_with_checkins\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"checkin_cycle_compliance\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"okrs_with_alignment\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"users_with_okrs\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"okrs_with_integrations\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        },\n        \"performance_report\": {\n          \"slice_by\": \"<string>\",\n          \"granularity\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.rhythms.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9667e811-a6de-4319-80f6-a2314c8f8ff6",
+    "name": "Rhythms (params in:body) access_requests explorer_views API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\n<p># RhythmsAI API</p>\n\n<p>The RhythmsAI API provides a comprehensive platform for team productivity, goal tracking, and workflow automation. Built with multi-tenant architecture, it enables organizations to manage objectives, track progress, and integrate with popular productivity tools.</p>\n\n<p>## API Structure</p>\n<ul><li>\n<p>**RESTful Design**: Clean, predictable REST endpoints following industry standards</p>\n</li><li>\n<p><strong>Multi-tenant</strong>: All data is automatically scoped to your organization’s tenant</p>\n</li><li>\n<p><strong>Authentication</strong>: Secure authentication with proper authorization controls</p>\n</li><li>\n<p><strong>Pagination</strong>: Efficient data retrieval with built-in pagination support</p>\n</li><li>\n<p><strong>Filtering</strong>: Advanced filtering capabilities using Ransack query DSL</p>\n</li></ul>\n\n<p>## Getting Started</p>\n\n<p>All API endpoints require authentication. Once authenticated, your requests will be automatically scoped to your organization’s data. The API supports JSON request/response format and follows standard HTTP status codes for success and error handling.</p>\n\n<p>For integration support and detailed examples, refer to the specific endpoint documentation below.</p>\n",
+      "type": "text/plain"
+    }
+  }
+}

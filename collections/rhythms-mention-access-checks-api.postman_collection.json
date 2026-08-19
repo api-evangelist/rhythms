@@ -1,0 +1,146 @@
+{
+  "item": [
+    {
+      "id": "0b43566e-93c6-4748-aaa2-0cc2b7ac1053",
+      "name": "mention_access_checks",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "08c9f55f-6247-468b-b537-cc747b598c9b",
+          "name": "Check which mentioned entities lack access",
+          "request": {
+            "name": "Check which mentioned entities lack access",
+            "description": {
+              "content": "Reports which mentioned users and teams lack view access to a shareable and\nwhether the caller may grant them access. Powers the proactive\n\"grant access at mention\" flow across every shareable type.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":shareable_type",
+                ":shareable_uuid",
+                "mention_access_check"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "user_uuids",
+                  "value": "<string>,<string>",
+                  "description": "UUIDs of mentioned users to check"
+                },
+                {
+                  "disabled": false,
+                  "key": "team_uuids",
+                  "value": "<string>,<string>",
+                  "description": "UUIDs of mentioned teams to check"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "shareable_type",
+                  "description": "(Required) Allowed shareable type segment (e.g. 'documents')"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "shareable_uuid",
+                  "description": "(Required) Shareable identifier (composite primary key or UUID)"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cb700008-2907-4ac1-8513-caea48b7f4e6",
+              "name": "ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":shareable_type",
+                    ":shareable_uuid",
+                    "mention_access_check"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "user_uuids",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "team_uuids",
+                      "value": "<string>,<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shareable_type",
+                      "description": "(Required) Allowed shareable type segment (e.g. 'documents')"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shareable_uuid",
+                      "description": "(Required) Shareable identifier (composite primary key or UUID)"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.rhythms.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "32f210d1-21d4-40e5-8b02-aec74a5c9dce",
+    "name": "Rhythms (params in:body) access_requests mention_access_checks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\n<p># RhythmsAI API</p>\n\n<p>The RhythmsAI API provides a comprehensive platform for team productivity, goal tracking, and workflow automation. Built with multi-tenant architecture, it enables organizations to manage objectives, track progress, and integrate with popular productivity tools.</p>\n\n<p>## API Structure</p>\n<ul><li>\n<p>**RESTful Design**: Clean, predictable REST endpoints following industry standards</p>\n</li><li>\n<p><strong>Multi-tenant</strong>: All data is automatically scoped to your organization’s tenant</p>\n</li><li>\n<p><strong>Authentication</strong>: Secure authentication with proper authorization controls</p>\n</li><li>\n<p><strong>Pagination</strong>: Efficient data retrieval with built-in pagination support</p>\n</li><li>\n<p><strong>Filtering</strong>: Advanced filtering capabilities using Ransack query DSL</p>\n</li></ul>\n\n<p>## Getting Started</p>\n\n<p>All API endpoints require authentication. Once authenticated, your requests will be automatically scoped to your organization’s data. The API supports JSON request/response format and follows standard HTTP status codes for success and error handling.</p>\n\n<p>For integration support and detailed examples, refer to the specific endpoint documentation below.</p>\n",
+      "type": "text/plain"
+    }
+  }
+}

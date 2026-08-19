@@ -1,0 +1,215 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rhythms (params in:body) access_requests teams API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "teams",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List teams and include current owners",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rhythms.ai/teams",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination (default: 1)"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of records per page (default: 20, max: 100)"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Alias for per_page - number of records per page"
+              },
+              {
+                "name": "limit_max",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records per page (overrides limit if not set)"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Set to 'true' to include total count in pagy metadata (data.pagy.count). Use for count/total queries instead of paginating through all pages."
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Ransack query parameters for filtering. In query strings, use bracket notation: q[name_cont]=john&q[status_eq]=active&q[s]=name+asc. Keys are attribute names with predicates: _cont (contains), _eq (equals), _in (array membership), _gteq (>=), _lteq (<=), _present (not null), _null (is null). The \"s\" key sorts results (e.g., q[s]=created_at+desc). Example query string: ?q[name_cont]=john&q[s]=name+asc filters names containing \"john\" sorted by name ascending."
+              }
+            ]
+          },
+          "docs": "Retrieves all teams. Use this to identify the correct team first; the serialized team data includes current owners. Combine this with the members endpoint when you need the full team roster.\n\nThis endpoint supports filtering and pagination through query parameters. Available ransackable attributes: uuid, display_name, parent_uuid, status, display_name, is_org, parent_uuid, depth.\n\nAvailable ransackable associations and their attributes:\n- team_memberships: team_memberships_uuid, team_memberships"
+        },
+        {
+          "info": {
+            "name": "Create a new team",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rhythms.ai/teams",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new team with the specified attributes, owners, and members"
+        },
+        {
+          "info": {
+            "name": "Update a team",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.rhythms.ai/teams/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Team UUID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates team attributes and manages team owners.\n\nOWNER MANAGEMENT:\n- Pass owner_uuids to set the complete list of team owners\n- Users in the array become owners, users not in the array are removed as owners\n- To add an owner: include all existing owners plus the new one\n- To remove an owner: include all owners except the one to remove\n"
+        },
+        {
+          "info": {
+            "name": "Add members to a team",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.rhythms.ai/teams/:id/add_members",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Team UUID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Adds users as members to the team. Existing members are preserved. Use this for adding members without needing the full member list."
+        },
+        {
+          "info": {
+            "name": "Remove one person from a team",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.rhythms.ai/teams/:id/remove_member/:member_uuid",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Team UUID"
+              },
+              {
+                "name": "member_uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of member to remove"
+              }
+            ]
+          },
+          "docs": "Removes a single person from the team.\n\nUse this for one-off removals without sending the full member list.\nFor bulk removals, call this endpoint once per person.\nThis endpoint can remove both regular members and owners.\n"
+        },
+        {
+          "info": {
+            "name": "Get team owners only",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rhythms.ai/teams/:id/owners",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Team UUID"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Items per page"
+              }
+            ]
+          },
+          "docs": "Returns team owners with their UUIDs, names, and emails.\n\nThis endpoint only returns owners.\nCombine it with the members endpoint when you need the full team roster\nor when the user asks to remove everyone including owners.\n"
+        },
+        {
+          "info": {
+            "name": "Get regular team members only",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rhythms.ai/teams/:id/members",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Team UUID"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Items per page"
+              }
+            ]
+          },
+          "docs": "Returns regular team members with their UUIDs, names, and emails.\n\nOwners are intentionally excluded from this response.\nCombine this endpoint with the team or owners endpoint when the user asks\nwho is on the team or when you need the full team roster.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

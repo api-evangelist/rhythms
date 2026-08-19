@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rhythms (params in:body) access_requests data_sources API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "data_sources",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a data source",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rhythms.ai/data_sources/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Composite primary key in format '<tenant_uuid>_<data_source_uuid>' or data source UUID"
+              }
+            ]
+          },
+          "docs": "Retrieves a data source by its composite primary key or by UUID within the current tenant.\n\nThe user must have permission to view the linked goal or initiative.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

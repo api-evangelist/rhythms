@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rhythms (params in:body) access_requests notifications API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "notifications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Send a notification to a specific user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rhythms.ai/internal/notifications/send",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sends a notification to a specific user within the current tenant using internal authentication.\n\nThis endpoint is intended for backend-triggered notifications where the originating user JWT\nmay no longer be valid by the time the notification is sent.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,124 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rhythms (params in:body) access_requests labels API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "labels",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List labels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rhythms.ai/labels",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination (default: 1)"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of records per page (default: 20, max: 100)"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Alias for per_page - number of records per page"
+              },
+              {
+                "name": "limit_max",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records per page (overrides limit if not set)"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Set to 'true' to include total count in pagy metadata (data.pagy.count). Use for count/total queries instead of paginating through all pages."
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Ransack query parameters for filtering. In query strings, use bracket notation: q[name_cont]=john&q[status_eq]=active&q[s]=name+asc. Keys are attribute names with predicates: _cont (contains), _eq (equals), _in (array membership), _gteq (>=), _lteq (<=), _present (not null), _null (is null). The \"s\" key sorts results (e.g., q[s]=created_at+desc). Example query string: ?q[name_cont]=john&q[s]=name+asc filters names containing \"john\" sorted by name ascending."
+              }
+            ]
+          },
+          "docs": "Retrieves all the labels and label groups available\n\nThis endpoint supports filtering and pagination through query parameters. Available ransackable attributes: uuid, name, parent_uuid, is_group.\n\nAvailable ransackable associations and their attributes:\n- parent: parent_uuid, parent_name, parent_parent_uuid, parent_is_group"
+        },
+        {
+          "info": {
+            "name": "Create a new label",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.rhythms.ai/labels",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new label with the provided attributes. Labels can be regular labels or groups (used for categorization). Admins only. For a label group, set is_group=true and do not set parent_uuid. To add a label to a group, create a new label with parent_uuid set to the group UUID."
+        },
+        {
+          "info": {
+            "name": "Update a label",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.rhythms.ai/labels/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "<tenant_uuid>_<label_uuid>"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing label or label group with the specified attributes. Admins only. Non-group labels can be moved between groups or back to the root by updating parent_uuid."
+        },
+        {
+          "info": {
+            "name": "Delete a label",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.rhythms.ai/labels/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Label UUID."
+              }
+            ]
+          },
+          "docs": "Deletes a label or label group. Deleting a group also deletes its child labels. Admins only."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

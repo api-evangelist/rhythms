@@ -1,0 +1,335 @@
+{
+  "item": [
+    {
+      "id": "fbd83800-327a-4668-bc94-92a707584c99",
+      "name": "access_requests",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "aceb6ddf-ab78-4a6f-b3a8-d536b07ac01b",
+          "name": "Request more access to a shareable resource",
+          "request": {
+            "name": "Request more access to a shareable resource",
+            "description": {
+              "content": "Request a higher access level on a shareable (document, view, or playbook). A pending request is persisted (created, or upgraded in place if one already exists) and the resource's owner and managers are notified when a new request is created. The request is auto-resolved once a later grant satisfies it. A request the user already satisfies (owner or already at/above the requested level) is a no-op.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":shareable_type",
+                ":shareable_uuid",
+                "access_requests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "shareable_type",
+                  "description": "(Required) Type of shareable resource"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "shareable_uuid",
+                  "description": "(Required) <tenant_uuid>_<resource_uuid> or resource UUID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requested_level\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1dbbfd17-23fa-4a0b-a6c5-404490e3ea1c",
+              "name": "ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":shareable_type",
+                    ":shareable_uuid",
+                    "access_requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shareable_type",
+                      "description": "(Required) Type of shareable resource"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shareable_uuid",
+                      "description": "(Required) <tenant_uuid>_<resource_uuid> or resource UUID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requested_level\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8808c99b-b844-409e-8450-2f6beff28313",
+          "name": "Get the caller's own pending access request",
+          "request": {
+            "name": "Get the caller's own pending access request",
+            "description": {
+              "content": "Returns the current user's own pending access request for a shareable (or none). Self-scoped: it only ever reports the caller's request, so it leaks nothing about the resource or other users' requests, and (like create) requires no existing access. The UI uses this to show a persistent \"Access requested\" state across page refreshes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":shareable_type",
+                ":shareable_uuid",
+                "access_requests",
+                "mine"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "shareable_type",
+                  "description": "(Required) Type of shareable resource"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "shareable_uuid",
+                  "description": "(Required) <tenant_uuid>_<resource_uuid> or resource UUID"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b27b3a63-d940-4eef-9577-e5d0a0fcb53f",
+              "name": "ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":shareable_type",
+                    ":shareable_uuid",
+                    "access_requests",
+                    "mine"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shareable_type",
+                      "description": "(Required) Type of shareable resource"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shareable_uuid",
+                      "description": "(Required) <tenant_uuid>_<resource_uuid> or resource UUID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a8c4ed7c-ba4b-4cc8-b68e-c25611933604",
+          "name": "Re-notify the owner/managers about the caller's pending request",
+          "request": {
+            "name": "Re-notify the owner/managers about the caller's pending request",
+            "description": {
+              "content": "Re-sends the access-request notification for the current user's own pending request (in-app re-surface + email), throttled to once per hour. Lets a requestor nudge an ignored request instead of being stuck. Self-scoped and tenant-scoped like the other actions. Returns { status: \"resent\" } when re-notified, { status: \"throttled\" } within the window, or { status: \"no_pending_request\" } when the caller has none.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":shareable_type",
+                ":shareable_uuid",
+                "access_requests",
+                "resend"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "shareable_type",
+                  "description": "(Required) Type of shareable resource"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "shareable_uuid",
+                  "description": "(Required) <tenant_uuid>_<resource_uuid> or resource UUID"
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c701486d-7fac-4e66-822b-dfb0f5b68f7c",
+              "name": "ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":shareable_type",
+                    ":shareable_uuid",
+                    "access_requests",
+                    "resend"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shareable_type",
+                      "description": "(Required) Type of shareable resource"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shareable_uuid",
+                      "description": "(Required) <tenant_uuid>_<resource_uuid> or resource UUID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.rhythms.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "1e1c8844-c157-4236-9ea7-3ce46e080ada",
+    "name": "Rhythms (params in:body) access_requests API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\n<p># RhythmsAI API</p>\n\n<p>The RhythmsAI API provides a comprehensive platform for team productivity, goal tracking, and workflow automation. Built with multi-tenant architecture, it enables organizations to manage objectives, track progress, and integrate with popular productivity tools.</p>\n\n<p>## API Structure</p>\n<ul><li>\n<p>**RESTful Design**: Clean, predictable REST endpoints following industry standards</p>\n</li><li>\n<p><strong>Multi-tenant</strong>: All data is automatically scoped to your organization’s tenant</p>\n</li><li>\n<p><strong>Authentication</strong>: Secure authentication with proper authorization controls</p>\n</li><li>\n<p><strong>Pagination</strong>: Efficient data retrieval with built-in pagination support</p>\n</li><li>\n<p><strong>Filtering</strong>: Advanced filtering capabilities using Ransack query DSL</p>\n</li></ul>\n\n<p>## Getting Started</p>\n\n<p>All API endpoints require authentication. Once authenticated, your requests will be automatically scoped to your organization’s data. The API supports JSON request/response format and follows standard HTTP status codes for success and error handling.</p>\n\n<p>For integration support and detailed examples, refer to the specific endpoint documentation below.</p>\n",
+      "type": "text/plain"
+    }
+  }
+}

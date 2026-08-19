@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rhythms (params in:body) access_requests objectives API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "objectives",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a specific OKR",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.rhythms.ai/okrs/objectives/show",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "query",
+                "description": "OKR UUID or human readable short ID (e.g., OBJ-001, KR-001, INIT-001)"
+              }
+            ]
+          },
+          "docs": "Retrieves detailed information about a specific OKR (Objective, Key Result, or Initiative) by UUID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

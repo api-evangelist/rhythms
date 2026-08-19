@@ -102,3 +102,9 @@ tools:
 - name: get_users
   description: List users
   source_operation: openapi/rhythms-openapi-original.json#get_users
+deployment:
+  mode: none
+  verified: derived
+  tools: 31
+  checked: '2026-08-12'
+  source: catalog MCP census
