@@ -35,6 +35,16 @@ created: '2026-07-17'
 modified: '2026-07-21'
 tags:
 - Company
+- Artificial Intelligence
+- Productivity
+- Goal Tracking
+- OKR
+- Workflow-Automation
+- Team Collaboration
+- Business Reviews
+- MCP
+tags_raw:
+- Company
 - Ai
 - Productivity
 - Goal Tracking
@@ -55,6 +65,8 @@ apis:
   humanURL: https://www.rhythms.ai/
   baseURL: https://api.rhythms.ai
   tags:
+  - AccessRequests
+  tags_raw:
   - access_requests
   properties:
   - type: OpenAPI
@@ -68,7 +80,8 @@ apis:
   description: The chat_refresh_threads API from Rhythms — 1 operation(s) for chat_refresh_threads.
   humanURL: https://www.rhythms.ai/
   baseURL: https://api.rhythms.ai
-  tags:
+  tags: []
+  tags_raw:
   - chat_refresh_threads
   properties:
   - type: OpenAPI
@@ -82,7 +95,8 @@ apis:
   description: The connector_requests API from Rhythms — 1 operation(s) for connector_requests.
   humanURL: https://www.rhythms.ai/
   baseURL: https://api.rhythms.ai
-  tags:
+  tags: []
+  tags_raw:
   - connector_requests
   properties:
   - type: OpenAPI
@@ -97,6 +111,8 @@ apis:
   humanURL: https://www.rhythms.ai/
   baseURL: https://api.rhythms.ai
   tags:
+  - Data Sources
+  tags_raw:
   - data_sources
   properties:
   - type: OpenAPI
@@ -111,6 +127,8 @@ apis:
   humanURL: https://www.rhythms.ai/
   baseURL: https://api.rhythms.ai
   tags:
+  - Documents
+  tags_raw:
   - documents
   properties:
   - type: OpenAPI
@@ -124,7 +142,8 @@ apis:
   description: The explorer_views API from Rhythms — 1 operation(s) for explorer_views.
   humanURL: https://www.rhythms.ai/
   baseURL: https://api.rhythms.ai
-  tags:
+  tags: []
+  tags_raw:
   - explorer_views
   properties:
   - type: OpenAPI
@@ -139,6 +158,8 @@ apis:
   humanURL: https://www.rhythms.ai/
   baseURL: https://api.rhythms.ai
   tags:
+  - Labels
+  tags_raw:
   - labels
   properties:
   - type: OpenAPI
@@ -152,7 +173,8 @@ apis:
   description: The mention_access_checks API from Rhythms — 1 operation(s) for mention_access_checks.
   humanURL: https://www.rhythms.ai/
   baseURL: https://api.rhythms.ai
-  tags:
+  tags: []
+  tags_raw:
   - mention_access_checks
   properties:
   - type: OpenAPI
@@ -167,6 +189,8 @@ apis:
   humanURL: https://www.rhythms.ai/
   baseURL: https://api.rhythms.ai
   tags:
+  - Notification
+  tags_raw:
   - notifications
   properties:
   - type: OpenAPI
@@ -181,6 +205,8 @@ apis:
   humanURL: https://www.rhythms.ai/
   baseURL: https://api.rhythms.ai
   tags:
+  - Objectives
+  tags_raw:
   - objectives
   properties:
   - type: OpenAPI
@@ -195,6 +221,8 @@ apis:
   humanURL: https://www.rhythms.ai/
   baseURL: https://api.rhythms.ai
   tags:
+  - Team
+  tags_raw:
   - teams
   properties:
   - type: OpenAPI
@@ -208,7 +236,8 @@ apis:
   description: The time_periods API from Rhythms — 2 operation(s) for time_periods.
   humanURL: https://www.rhythms.ai/
   baseURL: https://api.rhythms.ai
-  tags:
+  tags: []
+  tags_raw:
   - time_periods
   properties:
   - type: OpenAPI
@@ -223,6 +252,8 @@ apis:
   humanURL: https://www.rhythms.ai/
   baseURL: https://api.rhythms.ai
   tags:
+  - User
+  tags_raw:
   - users
   properties:
   - type: OpenAPI
