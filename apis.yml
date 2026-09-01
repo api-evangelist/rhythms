@@ -76,7 +76,8 @@ apis:
   description: The access_requests API from Rhythms — 3 operation(s) for access_requests.
   humanURL: https://www.rhythms.ai/
   baseURL: https://api.rhythms.ai
-  tags: []
+  tags:
+  - AccessRequests
   tags_raw:
   - access_requests
   properties:
@@ -121,7 +122,8 @@ apis:
   description: The data_sources API from Rhythms — 1 operation(s) for data_sources.
   humanURL: https://www.rhythms.ai/
   baseURL: https://api.rhythms.ai
-  tags: []
+  tags:
+  - Data Sources
   tags_raw:
   - data_sources
   properties:
@@ -215,7 +217,7 @@ apis:
   humanURL: https://www.rhythms.ai/
   baseURL: https://api.rhythms.ai
   tags:
-  - objectives
+  - Objectives
   tags_raw:
   - objectives
   properties:
