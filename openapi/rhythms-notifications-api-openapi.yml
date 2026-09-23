@@ -1,60 +1,22 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Rhythms (params in:body) access_requests notifications API
-  description: '
-
-    <p># RhythmsAI API</p>
+  title: Rhythms (params in:body) Notifications API
+  description: '# RhythmsAI API
 
 
-    <p>The RhythmsAI API provides a comprehensive platform for team productivity, goal tracking, and workflow automation. Built with multi-tenant architecture, it enables organizations to manage objectives, track progress, and integrate with popular productivity tools.</p>
-
-
-    <p>## API Structure</p>
-
-    <ul><li>
-
-    <p>**RESTful Design**: Clean, predictable REST endpoints following industry standards</p>
-
-    </li><li>
-
-    <p><strong>Multi-tenant</strong>: All data is automatically scoped to your organization’s tenant</p>
-
-    </li><li>
-
-    <p><strong>Authentication</strong>: Secure authentication with proper authorization controls</p>
-
-    </li><li>
-
-    <p><strong>Pagination</strong>: Efficient data retrieval with built-in pagination support</p>
-
-    </li><li>
-
-    <p><strong>Filtering</strong>: Advanced filtering capabilities using Ransack query DSL</p>
-
-    </li></ul>
-
-
-    <p>## Getting Started</p>
-
-
-    <p>All API endpoints require authentication. Once authenticated, your requests will be automatically scoped to your organization’s data. The API supports JSON request/response format and follows standard HTTP status codes for success and error handling.</p>
-
-
-    <p>For integration support and detailed examples, refer to the specific endpoint documentation below.</p>
-
-    '
+    The RhythmsAI API provides a comprehensive platform for team productivity, goal tracking, and workflow automation.'
   version: '1.0'
   x-copyright: null
 servers:
 - url: https://api.rhythms.ai
 security: []
 tags:
-- name: notifications
+- name: Notifications
 paths:
   /internal/notifications/send:
     post:
       tags:
-      - notifications
+      - Notifications
       operationId: post_internal_notifications_send
       summary: Send a notification to a specific user
       requestBody:
@@ -110,6 +72,4 @@ paths:
 
         This endpoint is intended for backend-triggered notifications where the originating user JWT
 
-        may no longer be valid by the time the notification is sent.
-
-        '
+        may no longer be valid by the time the notification is sent.'

@@ -1,19 +1,7 @@
 {
   "provider": "rhythms",
   "sources": [
-    "rhythms-access-requests-api-openapi.yml",
-    "rhythms-chat-refresh-threads-api-openapi.yml",
-    "rhythms-connector-requests-api-openapi.yml",
-    "rhythms-data-sources-api-openapi.yml",
-    "rhythms-documents-api-openapi.yml",
-    "rhythms-explorer-views-api-openapi.yml",
-    "rhythms-labels-api-openapi.yml",
-    "rhythms-mention-access-checks-api-openapi.yml",
-    "rhythms-notifications-api-openapi.yml",
-    "rhythms-objectives-api-openapi.yml",
-    "rhythms-teams-api-openapi.yml",
-    "rhythms-time-periods-api-openapi.yml",
-    "rhythms-users-api-openapi.yml"
+    "_original/rhythms-openapi-original.json"
   ],
   "outputs": [
     "rhythms-access-requests-api-openapi.yml",
@@ -33,6 +21,37 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "rhythms-openapi-original.json: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "rhythms-openapi-original.json: declared missing tag: access_requests",
+    "rhythms-openapi-original.json: declared missing tag: chat_refresh_threads",
+    "rhythms-openapi-original.json: declared missing tag: connector_requests",
+    "rhythms-openapi-original.json: declared missing tag: data_sources",
+    "rhythms-openapi-original.json: declared missing tag: documents",
+    "rhythms-openapi-original.json: declared missing tag: explorer_views",
+    "rhythms-openapi-original.json: declared missing tag: labels",
+    "rhythms-openapi-original.json: declared missing tag: mention_access_checks",
+    "rhythms-openapi-original.json: declared missing tag: notifications",
+    "rhythms-openapi-original.json: declared missing tag: objectives",
+    "rhythms-openapi-original.json: declared missing tag: teams",
+    "rhythms-openapi-original.json: declared missing tag: time_periods",
+    "rhythms-openapi-original.json: declared missing tag: users",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "rhythms-access-requests-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rhythms-chat-refresh-threads-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rhythms-connector-requests-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rhythms-data-sources-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rhythms-documents-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rhythms-explorer-views-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rhythms-labels-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rhythms-mention-access-checks-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rhythms-notifications-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rhythms-objectives-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rhythms-teams-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rhythms-time-periods-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rhythms-users-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

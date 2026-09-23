@@ -1,60 +1,22 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Rhythms (params in:body) access_requests documents API
-  description: '
-
-    <p># RhythmsAI API</p>
+  title: Rhythms (params in:body) Documents API
+  description: '# RhythmsAI API
 
 
-    <p>The RhythmsAI API provides a comprehensive platform for team productivity, goal tracking, and workflow automation. Built with multi-tenant architecture, it enables organizations to manage objectives, track progress, and integrate with popular productivity tools.</p>
-
-
-    <p>## API Structure</p>
-
-    <ul><li>
-
-    <p>**RESTful Design**: Clean, predictable REST endpoints following industry standards</p>
-
-    </li><li>
-
-    <p><strong>Multi-tenant</strong>: All data is automatically scoped to your organization’s tenant</p>
-
-    </li><li>
-
-    <p><strong>Authentication</strong>: Secure authentication with proper authorization controls</p>
-
-    </li><li>
-
-    <p><strong>Pagination</strong>: Efficient data retrieval with built-in pagination support</p>
-
-    </li><li>
-
-    <p><strong>Filtering</strong>: Advanced filtering capabilities using Ransack query DSL</p>
-
-    </li></ul>
-
-
-    <p>## Getting Started</p>
-
-
-    <p>All API endpoints require authentication. Once authenticated, your requests will be automatically scoped to your organization’s data. The API supports JSON request/response format and follows standard HTTP status codes for success and error handling.</p>
-
-
-    <p>For integration support and detailed examples, refer to the specific endpoint documentation below.</p>
-
-    '
+    The RhythmsAI API provides a comprehensive platform for team productivity, goal tracking, and workflow automation.'
   version: '1.0'
   x-copyright: null
 servers:
 - url: https://api.rhythms.ai
 security: []
 tags:
-- name: documents
+- name: Documents
 paths:
   /documents:
     get:
       tags:
-      - documents
+      - Documents
       operationId: get_documents
       summary: List documents
       parameters:
@@ -117,11 +79,10 @@ paths:
       description: 'Retrieves documents for the current tenant.
 
 
-
         This endpoint supports filtering and pagination through query parameters. Available ransackable attributes: uuid, name, view_uuid, name, creator_uuid, layout_uuid, playbook_uuid, status, content_type, created_at, updated_at.'
     post:
       tags:
-      - documents
+      - Documents
       operationId: post_documents
       summary: Create a new document
       requestBody:
@@ -167,7 +128,7 @@ paths:
   /documents/{uuid}:
     get:
       tags:
-      - documents
+      - Documents
       operationId: get_documents_uuid
       summary: Get a specific document
       parameters:
@@ -195,7 +156,7 @@ paths:
       description: Retrieves a document with content fetched from Tiptap collaboration server. Falls back to database content if Tiptap is unavailable.
     put:
       tags:
-      - documents
+      - Documents
       operationId: put_documents_uuid
       summary: Update document properties
       parameters:
@@ -256,13 +217,11 @@ paths:
         - Associate the document with a layout (e.g., after saving a new layout from a custom document)
 
 
-        At least one parameter (name, instructions, status, or layout_uuid) must be provided.
-
-        '
+        At least one parameter (name, instructions, status, or layout_uuid) must be provided.'
   /documents/{uuid}/activities:
     get:
       tags:
-      - documents
+      - Documents
       operationId: get_documents_uuid_activities
       summary: List a document's smart activity log
       parameters:
@@ -306,7 +265,7 @@ paths:
   /documents/{uuid}/refresh:
     post:
       tags:
-      - documents
+      - Documents
       operationId: post_documents_uuid_refresh
       summary: Trigger an on-demand refresh of a document
       parameters:
@@ -339,6 +298,4 @@ paths:
 
         with a `thread_uuid` tracking handle; callers poll the thread or re-read
 
-        the document to see the refresh outcome.
-
-        '
+        the document to see the refresh outcome.'

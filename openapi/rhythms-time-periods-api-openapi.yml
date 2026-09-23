@@ -1,60 +1,22 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Rhythms (params in:body) access_requests time_periods API
-  description: '
-
-    <p># RhythmsAI API</p>
+  title: Rhythms (params in:body) Time Periods API
+  description: '# RhythmsAI API
 
 
-    <p>The RhythmsAI API provides a comprehensive platform for team productivity, goal tracking, and workflow automation. Built with multi-tenant architecture, it enables organizations to manage objectives, track progress, and integrate with popular productivity tools.</p>
-
-
-    <p>## API Structure</p>
-
-    <ul><li>
-
-    <p>**RESTful Design**: Clean, predictable REST endpoints following industry standards</p>
-
-    </li><li>
-
-    <p><strong>Multi-tenant</strong>: All data is automatically scoped to your organization’s tenant</p>
-
-    </li><li>
-
-    <p><strong>Authentication</strong>: Secure authentication with proper authorization controls</p>
-
-    </li><li>
-
-    <p><strong>Pagination</strong>: Efficient data retrieval with built-in pagination support</p>
-
-    </li><li>
-
-    <p><strong>Filtering</strong>: Advanced filtering capabilities using Ransack query DSL</p>
-
-    </li></ul>
-
-
-    <p>## Getting Started</p>
-
-
-    <p>All API endpoints require authentication. Once authenticated, your requests will be automatically scoped to your organization’s data. The API supports JSON request/response format and follows standard HTTP status codes for success and error handling.</p>
-
-
-    <p>For integration support and detailed examples, refer to the specific endpoint documentation below.</p>
-
-    '
+    The RhythmsAI API provides a comprehensive platform for team productivity, goal tracking, and workflow automation.'
   version: '1.0'
   x-copyright: null
 servers:
 - url: https://api.rhythms.ai
 security: []
 tags:
-- name: time_periods
+- name: Time Periods
 paths:
   /okrs/time_periods:
     get:
       tags:
-      - time_periods
+      - Time Periods
       operationId: get_okrs_time_periods
       summary: List all time periods
       parameters:
@@ -119,12 +81,11 @@ paths:
         determined by the current tenant''s OKR cycle settings.
 
 
-
         This endpoint supports filtering and pagination through query parameters. Available ransackable attributes: uuid, name.'
   /okrs/time_periods/{id}:
     put:
       tags:
-      - time_periods
+      - Time Periods
       operationId: put_okrs_time_periods_id
       summary: Update a time period
       parameters:
@@ -185,12 +146,10 @@ paths:
 
         Optionally, you can update the parent-child relationship between time periods
 
-        to form a hierarchy.
-
-        '
+        to form a hierarchy.'
     delete:
       tags:
-      - time_periods
+      - Time Periods
       operationId: delete_okrs_time_periods_id
       summary: Delete a time period
       parameters:
@@ -220,6 +179,4 @@ paths:
 
         A time period cannot be deleted if it is the last remaining time period,
 
-        or if it has associated objectives, key results, or initiatives.
-
-        '
+        or if it has associated objectives, key results, or initiatives.'

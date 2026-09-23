@@ -1,60 +1,22 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Rhythms (params in:body) access_requests teams API
-  description: '
-
-    <p># RhythmsAI API</p>
+  title: Rhythms (params in:body) Teams API
+  description: '# RhythmsAI API
 
 
-    <p>The RhythmsAI API provides a comprehensive platform for team productivity, goal tracking, and workflow automation. Built with multi-tenant architecture, it enables organizations to manage objectives, track progress, and integrate with popular productivity tools.</p>
-
-
-    <p>## API Structure</p>
-
-    <ul><li>
-
-    <p>**RESTful Design**: Clean, predictable REST endpoints following industry standards</p>
-
-    </li><li>
-
-    <p><strong>Multi-tenant</strong>: All data is automatically scoped to your organization’s tenant</p>
-
-    </li><li>
-
-    <p><strong>Authentication</strong>: Secure authentication with proper authorization controls</p>
-
-    </li><li>
-
-    <p><strong>Pagination</strong>: Efficient data retrieval with built-in pagination support</p>
-
-    </li><li>
-
-    <p><strong>Filtering</strong>: Advanced filtering capabilities using Ransack query DSL</p>
-
-    </li></ul>
-
-
-    <p>## Getting Started</p>
-
-
-    <p>All API endpoints require authentication. Once authenticated, your requests will be automatically scoped to your organization’s data. The API supports JSON request/response format and follows standard HTTP status codes for success and error handling.</p>
-
-
-    <p>For integration support and detailed examples, refer to the specific endpoint documentation below.</p>
-
-    '
+    The RhythmsAI API provides a comprehensive platform for team productivity, goal tracking, and workflow automation.'
   version: '1.0'
   x-copyright: null
 servers:
 - url: https://api.rhythms.ai
 security: []
 tags:
-- name: teams
+- name: Teams
 paths:
   /teams:
     get:
       tags:
-      - teams
+      - Teams
       operationId: get_teams
       summary: List teams and include current owners
       parameters:
@@ -120,7 +82,7 @@ paths:
         - team_memberships: team_memberships_uuid, team_memberships_user_uuid'
     post:
       tags:
-      - teams
+      - Teams
       operationId: post_teams
       summary: Create a new team
       requestBody:
@@ -178,7 +140,7 @@ paths:
   /teams/{id}:
     put:
       tags:
-      - teams
+      - Teams
       operationId: put_teams_id
       summary: Update a team
       parameters:
@@ -252,13 +214,11 @@ paths:
 
         - To add an owner: include all existing owners plus the new one
 
-        - To remove an owner: include all owners except the one to remove
-
-        '
+        - To remove an owner: include all owners except the one to remove'
   /teams/{id}/add_members:
     put:
       tags:
-      - teams
+      - Teams
       operationId: put_teams_id_add_members
       summary: Add members to a team
       parameters:
@@ -301,7 +261,7 @@ paths:
   /teams/{id}/remove_member/{member_uuid}:
     delete:
       tags:
-      - teams
+      - Teams
       operationId: delete_teams_id_remove_member_member_uuid
       summary: Remove one person from a team
       parameters:
@@ -339,13 +299,11 @@ paths:
 
         For bulk removals, call this endpoint once per person.
 
-        This endpoint can remove both regular members and owners.
-
-        '
+        This endpoint can remove both regular members and owners.'
   /teams/{id}/owners:
     get:
       tags:
-      - teams
+      - Teams
       operationId: get_teams_id_owners
       summary: Get team owners only
       parameters:
@@ -375,13 +333,11 @@ paths:
 
         Combine it with the members endpoint when you need the full team roster
 
-        or when the user asks to remove everyone including owners.
-
-        '
+        or when the user asks to remove everyone including owners.'
   /teams/{id}/members:
     get:
       tags:
-      - teams
+      - Teams
       operationId: get_teams_id_members
       summary: Get regular team members only
       parameters:
@@ -411,6 +367,4 @@ paths:
 
         Combine this endpoint with the team or owners endpoint when the user asks
 
-        who is on the team or when you need the full team roster.
-
-        '
+        who is on the team or when you need the full team roster.'

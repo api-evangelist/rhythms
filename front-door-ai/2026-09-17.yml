@@ -1,0 +1,31 @@
+# Front Door AI Index — rhythms — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: rhythms
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.rhythms.ai
+  final_host: www.rhythms.ai
+  ownership: own
+  owner: rhythms
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 22
+  host_score: 22
+  density: 12.09
+  words: 1819
+  tiers:
+    agentic: 6
+    core: 12
+    model: 4
+  ambiguous: 2
+  top_terms:
+    AI: 12
+    AI agent: 2
+    AI assistant: 2
+    ChatGPT: 2
+    Claude: 2
+    agent: 2
+    copilot: 2
