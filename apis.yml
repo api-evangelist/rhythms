@@ -51,7 +51,7 @@ tags:
 - Productivity
 - Goal Tracking
 - OKRs
-- Workflow-Automation
+- Workflow Automation
 - Team Collaboration
 - Business Reviews
 - MCP
@@ -65,6 +65,7 @@ tags_raw:
 - Team Collaboration
 - Business Reviews
 - MCP
+- Workflow-Automation
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -72,7 +73,7 @@ maintainers:
   email: info@apis.io
 apis:
 - aid: rhythms:rhythms-access-requests-api
-  name: Rhythms access_requests API
+  name: Rhythms Access Requests API
   description: The access_requests API from Rhythms — 3 operation(s) for access_requests.
   humanURL: https://www.rhythms.ai/
   baseURL: https://api.rhythms.ai
@@ -88,7 +89,7 @@ apis:
   - type: DataModel
     url: data-model/rhythms-data-model.yml
 - aid: rhythms:rhythms-chat-refresh-threads-api
-  name: Rhythms chat_refresh_threads API
+  name: Rhythms Chat Refresh Threads API
   description: The chat_refresh_threads API from Rhythms — 1 operation(s) for chat_refresh_threads.
   humanURL: https://www.rhythms.ai/
   baseURL: https://api.rhythms.ai
@@ -103,7 +104,7 @@ apis:
   - type: DataModel
     url: data-model/rhythms-data-model.yml
 - aid: rhythms:rhythms-connector-requests-api
-  name: Rhythms connector_requests API
+  name: Rhythms Connector Requests API
   description: The connector_requests API from Rhythms — 1 operation(s) for connector_requests.
   humanURL: https://www.rhythms.ai/
   baseURL: https://api.rhythms.ai
@@ -118,7 +119,7 @@ apis:
   - type: DataModel
     url: data-model/rhythms-data-model.yml
 - aid: rhythms:rhythms-data-sources-api
-  name: Rhythms data_sources API
+  name: Rhythms Data Sources API
   description: The data_sources API from Rhythms — 1 operation(s) for data_sources.
   humanURL: https://www.rhythms.ai/
   baseURL: https://api.rhythms.ai
@@ -134,7 +135,7 @@ apis:
   - type: DataModel
     url: data-model/rhythms-data-model.yml
 - aid: rhythms:rhythms-documents-api
-  name: Rhythms documents API
+  name: Rhythms Documents API
   description: The documents API from Rhythms — 4 operation(s) for documents.
   humanURL: https://www.rhythms.ai/
   baseURL: https://api.rhythms.ai
@@ -150,7 +151,7 @@ apis:
   - type: DataModel
     url: data-model/rhythms-data-model.yml
 - aid: rhythms:rhythms-explorer-views-api
-  name: Rhythms explorer_views API
+  name: Rhythms Explorer Views API
   description: The explorer_views API from Rhythms — 1 operation(s) for explorer_views.
   humanURL: https://www.rhythms.ai/
   baseURL: https://api.rhythms.ai
@@ -165,7 +166,7 @@ apis:
   - type: DataModel
     url: data-model/rhythms-data-model.yml
 - aid: rhythms:rhythms-labels-api
-  name: Rhythms labels API
+  name: Rhythms Labels API
   description: The labels API from Rhythms — 2 operation(s) for labels.
   humanURL: https://www.rhythms.ai/
   baseURL: https://api.rhythms.ai
@@ -181,7 +182,7 @@ apis:
   - type: DataModel
     url: data-model/rhythms-data-model.yml
 - aid: rhythms:rhythms-mention-access-checks-api
-  name: Rhythms mention_access_checks API
+  name: Rhythms Mention Access Checks API
   description: The mention_access_checks API from Rhythms — 1 operation(s) for mention_access_checks.
   humanURL: https://www.rhythms.ai/
   baseURL: https://api.rhythms.ai
@@ -196,7 +197,7 @@ apis:
   - type: DataModel
     url: data-model/rhythms-data-model.yml
 - aid: rhythms:rhythms-notifications-api
-  name: Rhythms notifications API
+  name: Rhythms Notifications API
   description: The notifications API from Rhythms — 1 operation(s) for notifications.
   humanURL: https://www.rhythms.ai/
   baseURL: https://api.rhythms.ai
@@ -212,7 +213,7 @@ apis:
   - type: DataModel
     url: data-model/rhythms-data-model.yml
 - aid: rhythms:rhythms-objectives-api
-  name: Rhythms objectives API
+  name: Rhythms Objectives API
   description: The objectives API from Rhythms — 1 operation(s) for objectives.
   humanURL: https://www.rhythms.ai/
   baseURL: https://api.rhythms.ai
@@ -228,7 +229,7 @@ apis:
   - type: DataModel
     url: data-model/rhythms-data-model.yml
 - aid: rhythms:rhythms-teams-api
-  name: Rhythms teams API
+  name: Rhythms Teams API
   description: The teams API from Rhythms — 6 operation(s) for teams.
   humanURL: https://www.rhythms.ai/
   baseURL: https://api.rhythms.ai
@@ -244,7 +245,7 @@ apis:
   - type: DataModel
     url: data-model/rhythms-data-model.yml
 - aid: rhythms:rhythms-time-periods-api
-  name: Rhythms time_periods API
+  name: Rhythms Time Periods API
   description: The time_periods API from Rhythms — 2 operation(s) for time_periods.
   humanURL: https://www.rhythms.ai/
   baseURL: https://api.rhythms.ai
@@ -259,7 +260,7 @@ apis:
   - type: DataModel
     url: data-model/rhythms-data-model.yml
 - aid: rhythms:rhythms-users-api
-  name: Rhythms users API
+  name: Rhythms Users API
   description: The users API from Rhythms — 1 operation(s) for users.
   humanURL: https://www.rhythms.ai/
   baseURL: https://api.rhythms.ai
