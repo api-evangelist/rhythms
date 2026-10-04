@@ -276,6 +276,9 @@ apis:
   - type: DataModel
     url: data-model/rhythms-data-model.yml
 common:
+- type: CapabilityMap
+  url: capabilities/rhythms-capability-edges.yml
+  name: Rhythms Business Capability Map
 - type: Overlay
   url: overlays/rhythms-openapi-overlay.yaml
 - type: DomainSecurity
